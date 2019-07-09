@@ -27,3 +27,17 @@ enum ZPosition {
     static let label: CGFloat = 2
 }
 
+enum SpecificCGPoint {
+    static let middle: CGPoint = CGPoint(x: screenSize.midX, y: screenSize.midY)
+    static let bottomLeftCorner: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6, y: screenSize.minY + screenSize.midY / 9)
+    static let bottomLeftCornerEndPoint: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6 + screenSize.width / 20, y: screenSize.minY + screenSize.midY / 9 + screenSize.height / 30)
+    
+    static let bottomRightCorner: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6, y: screenSize.minY + screenSize.midY / 9)
+    static let bottomRightCornerEndPoint: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6 - screenSize.width / 20, y: screenSize.minY + screenSize.midY / 9 + screenSize.height / 30)
+    
+    static let topLeftCorner: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6, y: screenSize.maxY - screenSize.midY / 9)
+    static let topLeftCornerEndPoint: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6 + screenSize.width / 20, y: screenSize.maxY - screenSize.midY / 9 - screenSize.height / 30)
+    
+    static let topRightCorner: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6, y: screenSize.maxY - screenSize.midY / 9)
+    static let topRightCornerEndPoint: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6 - screenSize.width / 20, y: screenSize.maxY - screenSize.midY / 9 - screenSize.height / 30)
+}
