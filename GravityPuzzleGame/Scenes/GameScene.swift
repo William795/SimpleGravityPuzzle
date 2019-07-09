@@ -13,6 +13,7 @@ class GameScene: SKScene {
     
     //level object that sets up the scene
     var level: Level?
+    var levelFinished = false
     
     var blockOne: SKSpriteNode?
     var blockTwo: SKSpriteNode?
@@ -24,6 +25,7 @@ class GameScene: SKScene {
 //        var blockArray = [Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: 100, y: 100), goalPoint: CGPoint(x: frame.midX, y: frame.midY + 500), isInPlace: false)]
 //        let wallArray = [Wall(size: CGSize(width: 20, height: 200), position: CGPoint(x: frame.midX, y: 200)), Wall(size: CGSize(width: 200, height: 20), position: CGPoint(x: 150, y: frame.midY))]
 //        level = Level(blocks: blockArray, walls: wallArray, isComplete: false)
+        
         
         setUpPhysics()
         levelSetUp()
@@ -51,15 +53,14 @@ class GameScene: SKScene {
     func setUpBlocks() {
         var blockNumber = 1
         for block in level?.blocks ?? [] {
-            makeBlock(startPosition: block.startingPoint, colorRef: block.colorReference, propertyRef: block.propertiesReference, blockID: blockNumber)
-            makeEndPoint(endPosition: block.goalPoint, endPointID: blockNumber, colorRef: block.colorReference)
+            makeBlock(startPosition: block.startingPoint, colorRef: block.colorReference, propertyRef: block.propertiesReference, blockID: blockNumber, size: block.blockSize)
+            makeEndPoint(endPosition: block.goalPoint, endPointID: blockNumber, colorRef: block.colorReference, size: block.blockSize)
             block.isInPlace = false
             blockNumber += 1
         }
     }
     
-    func makeBlock(startPosition: CGPoint, colorRef: Int, propertyRef: Int, blockID: Int) {
-        let size = CGSize(width: 50, height: 50)
+    func makeBlock(startPosition: CGPoint, colorRef: Int, propertyRef: Int, blockID: Int, size: CGSize) {
         let block = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: size)
         block.name = "\(propertyRef)"
         block.position = startPosition
@@ -117,9 +118,8 @@ class GameScene: SKScene {
     
     //MARK: EndPoint set up
     
-    func makeEndPoint(endPosition: CGPoint, endPointID: Int, colorRef: Int) {
-        let size = CGSize(width: 50, height: 50)
-        let goal = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: size)
+    func makeEndPoint(endPosition: CGPoint, endPointID: Int, colorRef: Int, size: CGSize) {
+        let goal = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: CGSize(width: size.width / 2, height: size.height / 2))
         goal.position = endPosition
         goal.zPosition = ZPosition.gameElements
         goal.physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -157,7 +157,7 @@ class GameScene: SKScene {
         
         addChild(wall)
     }
-    
+    //MARK: TODO - change these hard values to be based on screen size
     func perimeterSetUp() {
         let leftSide = CGPoint(x: frame.minX, y: frame.midY)
         let leftSize = CGSize(width: 50, height: frame.size.height)
@@ -190,6 +190,9 @@ class GameScene: SKScene {
     //MARK: Touch Functions
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if levelFinished {
+            return
+        }
         var pos: CGPoint!
         for touch in touches {
             pos = touch.location(in: self)
@@ -204,24 +207,6 @@ class GameScene: SKScene {
                 print("nothing")
             }
         }
-        
-        print("tapped")
-        
-    }
-
-    func spawnBall(point: CGPoint) {
-        let test = SKSpriteNode(color: .blue, size: CGSize(width: 30.0, height: 30.0))
-        test.size = CGSize(width: 30.0, height: 30.0)
-        test.colorBlendFactor = 1.0
-        test.name = "Ball"
-        test.position = point
-        test.zPosition = ZPosition.label
-        test.physicsBody = SKPhysicsBody(rectangleOf: test.size)
-        test.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
-        test.physicsBody?.contactTestBitMask = PhysicsCategorys.wall
-        test.physicsBody?.collisionBitMask = PhysicsCategorys.wall
-        test.physicsBody?.allowsRotation = false
-        addChild(test)
     }
     
     //MARK: Game end functions
@@ -240,8 +225,15 @@ class GameScene: SKScene {
     }
     
     func gameWon() {
-        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        //present UIKit view?
+        //MARK: TODO - replace with something better (UIKit view?)
+        let label = SKLabelNode(text: "You Win!")
+        label.fontSize = 50
+        label.fontColor = .white
+        label.position = CGPoint(x: frame.midX, y: frame.midY)
+        label.zPosition = ZPosition.label
+        
+        addChild(label)
+        levelFinished = true
     }
 }
 

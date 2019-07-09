@@ -10,6 +10,8 @@ import SpriteKit
 
 class BlockController {
     
+    static let shared = BlockController()
+    
     //MARK: Blocks
     
     let redBlockTemplate = Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: 110, y: 100), goalPoint: CGPoint(x: 0, y: 0), blockSize: CGSize(width: 0, height: 0), isInPlace: false)
@@ -17,13 +19,24 @@ class BlockController {
     
     //MARK: pack 1 levels block placement
     
-    func setUpBlockPosition(blockStart: CGPoint, goalPoint: CGPoint, blockSize: CGSize, blocksPropertyReferance: Int)  {
+    func setUpBlock(blockStart: CGPoint, goalPoint: CGPoint, blockSize: CGSize, blockPropertyReferance: Int) -> Block  {
         
-        let redBlock = redBlockTemplate
-        redBlock.blockSize = blockSize
-        redBlock.startingPoint = blockStart
-        redBlock.goalPoint = goalPoint
+        let block = identifyBlock(blockRef: blockPropertyReferance)
+        block.blockSize = blockSize
+        block.startingPoint = blockStart
+        block.goalPoint = goalPoint
         
-        
+        return block
+    }
+    
+    func identifyBlock(blockRef: Int) -> Block {
+        switch blockRef {
+        case 1:
+            return redBlockTemplate
+        case 2:
+            return blueBlockTemplate
+        default:
+            return redBlockTemplate
+        }
     }
 }

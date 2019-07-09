@@ -10,8 +10,8 @@ import Foundation
 
 class Level {
     
-    let blocks: [Block]
-    let walls: [Wall]
+    var blocks: [Block]
+    var walls: [Wall]
     var isComplete: Bool
     
     init(blocks: [Block], walls: [Wall], isComplete: Bool) {
