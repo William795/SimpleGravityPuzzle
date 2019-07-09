@@ -8,7 +8,8 @@
 
 import UIKit
 import SpriteKit
-import GameplayKit
+
+let screenSize: CGRect = UIScreen.main.bounds
 
 class GameViewController: UIViewController {
     

@@ -27,6 +27,3 @@ enum ZPosition {
     static let label: CGFloat = 2
 }
 
-enum Colors: Int {
-    case red, blue, yellow, green
-}

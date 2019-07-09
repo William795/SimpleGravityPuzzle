@@ -20,6 +20,8 @@
 		9248E1D622D3B6C000114C5A /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1D522D3B6C000114C5A /* Level.swift */; };
 		9248E1D822D3B71400114C5A /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1D722D3B71400114C5A /* Block.swift */; };
 		9248E1DC22D3B73600114C5A /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1DB22D3B73600114C5A /* Wall.swift */; };
+		924AE13B22D51052001D0C8A /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13A22D51052001D0C8A /* BlockController.swift */; };
+		924AE13D22D51347001D0C8A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13C22D51347001D0C8A /* LevelController.swift */; };
 		92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BFDD3E22D3DA8700470085 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		9248E1D522D3B6C000114C5A /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		9248E1D722D3B71400114C5A /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		9248E1DB22D3B73600114C5A /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		924AE13A22D51052001D0C8A /* BlockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
+		924AE13C22D51347001D0C8A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		92BFDD3E22D3DA8700470085 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				9248E1D122D3B69A00114C5A /* PackController.swift */,
+				924AE13A22D51052001D0C8A /* BlockController.swift */,
+				924AE13C22D51347001D0C8A /* LevelController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -336,7 +342,9 @@
 				9248E1D622D3B6C000114C5A /* Level.swift in Sources */,
 				9248E1CD22D3B64900114C5A /* Pack.swift in Sources */,
 				9248E1D222D3B69A00114C5A /* PackController.swift in Sources */,
+				924AE13B22D51052001D0C8A /* BlockController.swift in Sources */,
 				9248E19E22D3B31400114C5A /* GameScene.swift in Sources */,
+				924AE13D22D51347001D0C8A /* LevelController.swift in Sources */,
 				9248E1A022D3B31400114C5A /* GameViewController.swift in Sources */,
 				9248E1DC22D3B73600114C5A /* Wall.swift in Sources */,
 				92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */,

@@ -14,15 +14,16 @@ class GameScene: SKScene {
     //level object that sets up the scene
     var level: Level?
     
-    var gameWon = false
-    
-    
+    var blockOne: SKSpriteNode?
+    var blockTwo: SKSpriteNode?
+    var blockThree: SKSpriteNode?
+    var blockFour: SKSpriteNode?
     //MARK: Scene Set Up
     override func didMove(to view: SKView) {
         
-        var blockArray = [Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: frame.midX, y: frame.midY), goalPoint: CGPoint(x: frame.midX, y: frame.midY + 50), isInPlace: false)]
-        let wallArray = [Wall(size: CGSize(width: 20, height: 200), position: CGPoint(x: frame.midX, y: 200)), Wall(size: CGSize(width: 200, height: 20), position: CGPoint(x: 150, y: frame.midY))]
-        level = Level(blocks: blockArray, walls: wallArray, isComplete: false)
+//        var blockArray = [Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: 100, y: 100), goalPoint: CGPoint(x: frame.midX, y: frame.midY + 500), isInPlace: false)]
+//        let wallArray = [Wall(size: CGSize(width: 20, height: 200), position: CGPoint(x: frame.midX, y: 200)), Wall(size: CGSize(width: 200, height: 20), position: CGPoint(x: 150, y: frame.midY))]
+//        level = Level(blocks: blockArray, walls: wallArray, isComplete: false)
         
         setUpPhysics()
         levelSetUp()
@@ -60,14 +61,14 @@ class GameScene: SKScene {
     func makeBlock(startPosition: CGPoint, colorRef: Int, propertyRef: Int, blockID: Int) {
         let size = CGSize(width: 50, height: 50)
         let block = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: size)
+        block.name = "\(propertyRef)"
         block.position = startPosition
         block.zPosition = ZPosition.gameElements
-        block.physicsBody = SKPhysicsBody(rectangleOf: size)
+        block.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width + 1, height: size.height + 1))
         block.physicsBody?.collisionBitMask = PhysicsCategorys.wall
+        block.physicsBody?.allowsRotation = false
         
-        blockPhysicsBody(sprite: block, ID: blockID)
-        
-        addChild(block)
+        addChild(blockPhysicsBody(sprite: block, ID: blockID))
     }
     
     func getBlockColor(colorRef: Int) -> UIColor {
@@ -87,22 +88,30 @@ class GameScene: SKScene {
         return color
     }
     
-    func blockPhysicsBody(sprite: SKSpriteNode, ID: Int) {
+    func blockPhysicsBody(sprite: SKSpriteNode, ID: Int) -> SKSpriteNode {
         switch ID {
         case 1:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointOne
+            blockOne = sprite
+            return blockOne ?? sprite
         case 2:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockTwo
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointTwo
+            blockTwo = sprite
+            return blockTwo ?? sprite
         case 3:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockThree
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointThree
+            blockThree = sprite
+            return blockThree ?? sprite
         case 4:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockFour
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointFour
+            blockFour = sprite
+            return blockFour ?? sprite
         default:
-            return
+            return sprite
         }
     }
     
@@ -181,25 +190,59 @@ class GameScene: SKScene {
     //MARK: Touch Functions
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        var pos: CGPoint!
         for touch in touches {
-            self.spawnBall(point: touch.location(in: self))
+            pos = touch.location(in: self)
+        }
+        for node in nodes(at: pos) {
+            switch node.name {
+            case "1":
+                redBlockGravityChange()
+            case "2":
+                print("two")
+            default:
+                print("nothing")
+            }
+        }
+        
+        print("tapped")
+        
+    }
+
+    func spawnBall(point: CGPoint) {
+        let test = SKSpriteNode(color: .blue, size: CGSize(width: 30.0, height: 30.0))
+        test.size = CGSize(width: 30.0, height: 30.0)
+        test.colorBlendFactor = 1.0
+        test.name = "Ball"
+        test.position = point
+        test.zPosition = ZPosition.label
+        test.physicsBody = SKPhysicsBody(rectangleOf: test.size)
+        test.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
+        test.physicsBody?.contactTestBitMask = PhysicsCategorys.wall
+        test.physicsBody?.collisionBitMask = PhysicsCategorys.wall
+        test.physicsBody?.allowsRotation = false
+        addChild(test)
+    }
+    
+    //MARK: Game end functions
+    
+    func gameWinCheck() {
+        guard let level = level else {return}
+        var blocksInPlace = 0
+        for block in level.blocks {
+            if block.isInPlace {
+                blocksInPlace += 1
+            }
+        }
+        if level.blocks.count == blocksInPlace {
+            gameWon()
         }
     }
     
-    func spawnBall(point: CGPoint) {
-        let ball = SKSpriteNode(color: .red, size: CGSize(width: 30.0, height: 30.0))
-        ball.size = CGSize(width: 30.0, height: 30.0)
-        ball.colorBlendFactor = 1.0
-        ball.name = "Ball"
-        ball.position = point
-        ball.zPosition = ZPosition.label
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width/2)
-        ball.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
-        ball.physicsBody?.contactTestBitMask = PhysicsCategorys.wall
-        ball.physicsBody?.collisionBitMask = PhysicsCategorys.wall
-        addChild(ball)
+    func gameWon() {
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        //present UIKit view?
     }
-    
 }
 
 extension GameScene: SKPhysicsContactDelegate {
@@ -213,7 +256,24 @@ extension GameScene: SKPhysicsContactDelegate {
         case PhysicsCategorys.wall | PhysicsCategorys.blockOne:
             print("contact")
         case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
-            print("yo")
+            level?.blocks[0].isInPlace = true
+            
+            gameWinCheck()
+            
+        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
+            level?.blocks[1].isInPlace = true
+            
+            gameWinCheck()
+            
+        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
+            level?.blocks[2].isInPlace = true
+            
+            gameWinCheck()
+            
+        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
+            level?.blocks[3].isInPlace = true
+            
+            gameWinCheck()
             
         default:
             print("nope")
@@ -225,9 +285,59 @@ extension GameScene: SKPhysicsContactDelegate {
         
         switch contactMask {
         case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
-            print("lost contact")
+            level?.blocks[0].isInPlace = false
+            
+        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
+            level?.blocks[1].isInPlace = false
+            
+        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
+            level?.blocks[2].isInPlace = false
+            
+        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
+            level?.blocks[3].isInPlace = false
+            
         default:
             print("nope")
+        }
+    }
+}
+
+extension GameScene {
+    //MARK: Gravity funtions
+    
+    func redBlockGravityChange() {
+        let currentDX = physicsWorld.gravity.dx
+        let currentDY = physicsWorld.gravity.dy
+        let currentGravityVector = CGVector(dx: currentDX, dy: currentDY)
+        switch currentGravityVector {
+        case CGVector(dx: 10, dy: 0):
+            physicsWorld.gravity = CGVector(dx: 0, dy: 10)
+        case CGVector(dx: 0, dy: 10):
+            physicsWorld.gravity = CGVector(dx: -10, dy: 0)
+        case CGVector(dx: -10, dy: 0):
+            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+        case CGVector(dx: 0, dy: -10):
+            physicsWorld.gravity = CGVector(dx: 10, dy: 0)
+        default:
+            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+        }
+    }
+    
+    func blueBlockGravityChange() {
+        let currentDX = physicsWorld.gravity.dx
+        let currentDY = physicsWorld.gravity.dy
+        let currentGravityVector = CGVector(dx: currentDX, dy: currentDY)
+        switch currentGravityVector {
+        case CGVector(dx: 10, dy: 0):
+            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+        case CGVector(dx: 0, dy: -10):
+            physicsWorld.gravity = CGVector(dx: -10, dy: 0)
+        case CGVector(dx: -10, dy: 0):
+            physicsWorld.gravity = CGVector(dx: 0, dy: 10)
+        case CGVector(dx: 0, dy: 10):
+            physicsWorld.gravity = CGVector(dx: 10, dy: 0)
+        default:
+            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
         }
     }
 }
