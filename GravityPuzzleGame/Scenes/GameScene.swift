@@ -25,7 +25,7 @@ class GameScene: SKScene {
 //        var blockArray = [Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: 100, y: 100), goalPoint: CGPoint(x: frame.midX, y: frame.midY + 500), isInPlace: false)]
 //        let wallArray = [Wall(size: CGSize(width: 20, height: 200), position: CGPoint(x: frame.midX, y: 200)), Wall(size: CGSize(width: 200, height: 20), position: CGPoint(x: 150, y: frame.midY))]
 //        level = Level(blocks: blockArray, walls: wallArray, isComplete: false)
-        
+        level = LevelController.shared.makeSecondLevel()
         
         setUpPhysics()
         levelSetUp()
@@ -119,8 +119,9 @@ class GameScene: SKScene {
     //MARK: EndPoint set up
     
     func makeEndPoint(endPosition: CGPoint, endPointID: Int, colorRef: Int, size: CGSize) {
-        let goal = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: CGSize(width: size.width / 2, height: size.height / 2))
+        let goal = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: getBlockColor(colorRef: colorRef), size: CGSize(width: size.width / 2, height: size.height / 2))
         goal.position = endPosition
+        goal.colorBlendFactor = 1.0
         goal.zPosition = ZPosition.gameElements
         goal.physicsBody = SKPhysicsBody(rectangleOf: size)
         endPointCategoryBitmask(sprite: goal, ID: endPointID)
@@ -157,22 +158,22 @@ class GameScene: SKScene {
         
         addChild(wall)
     }
-    //MARK: TODO - change these hard values to be based on screen size
+    
     func perimeterSetUp() {
         let leftSide = CGPoint(x: frame.minX, y: frame.midY)
-        let leftSize = CGSize(width: 50, height: frame.size.height)
+        let leftSize = sideBorders
         makePerimeterWall(side: leftSide, size: leftSize)
         
         let rightSide = CGPoint(x: frame.maxX, y: frame.midY)
-        let rightSize = CGSize(width: 50, height: frame.size.height)
+        let rightSize = sideBorders
         makePerimeterWall(side: rightSide, size: rightSize)
         
         let topSide = CGPoint(x: frame.midX, y: frame.maxY)
-        let topSize = CGSize(width: frame.size.width, height: 70)
+        let topSize = topAndBottomBorders
         makePerimeterWall(side: topSide, size: topSize)
         
         let bottomSide = CGPoint(x: frame.midX, y: frame.minY)
-        let bottomSize = CGSize(width: frame.size.width, height: 70)
+        let bottomSize = topAndBottomBorders
         makePerimeterWall(side: bottomSide, size: bottomSize)
     }
     
@@ -202,7 +203,7 @@ class GameScene: SKScene {
             case "1":
                 redBlockGravityChange()
             case "2":
-                print("two")
+                blueBlockGravityChange()
             default:
                 print("nothing")
             }
