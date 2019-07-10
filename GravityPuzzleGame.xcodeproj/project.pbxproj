@@ -23,6 +23,11 @@
 		924AE13B22D51052001D0C8A /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13A22D51052001D0C8A /* BlockController.swift */; };
 		924AE13D22D51347001D0C8A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13C22D51347001D0C8A /* LevelController.swift */; };
 		92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BFDD3E22D3DA8700470085 /* Settings.swift */; };
+		92E594E622D6474000FC02B0 /* WallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E522D6474000FC02B0 /* WallController.swift */; };
+		92E594E822D6550B00FC02B0 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */; };
+		92E594EA22D6551B00FC02B0 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */; };
+		92E594EC22D6552600FC02B0 /* PackSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */; };
+		92E594EF22D662C400FC02B0 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		924AE13A22D51052001D0C8A /* BlockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
 		924AE13C22D51347001D0C8A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		92BFDD3E22D3DA8700470085 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		92E594E522D6474000FC02B0 /* WallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallController.swift; sourceTree = "<group>"; };
+		92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
+		92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
+		92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackSelectViewController.swift; sourceTree = "<group>"; };
+		92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				9248E1CB22D3B34200114C5A /* Resources */,
-				9248E1CE22D3B67A00114C5A /* Scenes */,
+				92E594ED22D6629000FC02B0 /* Views */,
 				9248E1CF22D3B68700114C5A /* Controllers */,
 				9248E1D022D3B68E00114C5A /* Models */,
 				92BFDD4022D3DA8C00470085 /* Template */,
@@ -146,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				9248E19722D3B31400114C5A /* AppDelegate.swift */,
-				9248E1A122D3B31400114C5A /* Main.storyboard */,
 				9248E1A422D3B31500114C5A /* Assets.xcassets */,
 				9248E1A622D3B31500114C5A /* LaunchScreen.storyboard */,
 				9248E1A922D3B31500114C5A /* Info.plist */,
@@ -186,6 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				9248E19F22D3B31400114C5A /* GameViewController.swift */,
+				92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */,
+				92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */,
+				92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +208,7 @@
 				9248E1D122D3B69A00114C5A /* PackController.swift */,
 				924AE13A22D51052001D0C8A /* BlockController.swift */,
 				924AE13C22D51347001D0C8A /* LevelController.swift */,
+				92E594E522D6474000FC02B0 /* WallController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -206,6 +219,16 @@
 				92BFDD3E22D3DA8700470085 /* Settings.swift */,
 			);
 			path = Template;
+			sourceTree = "<group>";
+		};
+		92E594ED22D6629000FC02B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9248E1CE22D3B67A00114C5A /* Scenes */,
+				9248E1A122D3B31400114C5A /* Main.storyboard */,
+				92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,14 +365,19 @@
 				9248E1D622D3B6C000114C5A /* Level.swift in Sources */,
 				9248E1CD22D3B64900114C5A /* Pack.swift in Sources */,
 				9248E1D222D3B69A00114C5A /* PackController.swift in Sources */,
+				92E594E822D6550B00FC02B0 /* TitleScreenViewController.swift in Sources */,
+				92E594E622D6474000FC02B0 /* WallController.swift in Sources */,
 				924AE13B22D51052001D0C8A /* BlockController.swift in Sources */,
 				9248E19E22D3B31400114C5A /* GameScene.swift in Sources */,
+				92E594EF22D662C400FC02B0 /* LevelCollectionViewCell.swift in Sources */,
 				924AE13D22D51347001D0C8A /* LevelController.swift in Sources */,
 				9248E1A022D3B31400114C5A /* GameViewController.swift in Sources */,
+				92E594EC22D6552600FC02B0 /* PackSelectViewController.swift in Sources */,
 				9248E1DC22D3B73600114C5A /* Wall.swift in Sources */,
 				92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */,
 				9248E19822D3B31400114C5A /* AppDelegate.swift in Sources */,
 				9248E1D822D3B71400114C5A /* Block.swift in Sources */,
+				92E594EA22D6551B00FC02B0 /* LevelSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

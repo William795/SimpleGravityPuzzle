@@ -10,8 +10,8 @@ import UIKit
 import SpriteKit
 
 let screenSize: CGRect = UIScreen.main.bounds
-let sideBorders: CGSize = CGSize(width: screenSize.width / 9, height: screenSize.height)
-let topAndBottomBorders: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 10)
+let sideBorders: CGSize = CGSize(width: screenSize.width / 6, height: screenSize.height)
+let topAndBottomBorders: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 12)
 
 class GameViewController: UIViewController {
     

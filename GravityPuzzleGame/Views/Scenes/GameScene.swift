@@ -20,12 +20,26 @@ class GameScene: SKScene {
     var blockThree: SKSpriteNode?
     var blockFour: SKSpriteNode?
     //MARK: Scene Set Up
+    
+    var currentDirection: Direction = .down {
+        didSet {
+            switch self.currentDirection {
+            case .up:
+                physicsWorld.gravity = CGVector(dx: 0, dy: 10)
+            case .right:
+                physicsWorld.gravity = CGVector(dx: 10, dy: 0)
+            case .down:
+                physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+            case.left:
+                physicsWorld.gravity = CGVector(dx: -10, dy: 0)
+            }
+        }
+    }
+    
     override func didMove(to view: SKView) {
         
-//        var blockArray = [Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: 100, y: 100), goalPoint: CGPoint(x: frame.midX, y: frame.midY + 500), isInPlace: false)]
-//        let wallArray = [Wall(size: CGSize(width: 20, height: 200), position: CGPoint(x: frame.midX, y: 200)), Wall(size: CGSize(width: 200, height: 20), position: CGPoint(x: 150, y: frame.midY))]
-//        level = Level(blocks: blockArray, walls: wallArray, isComplete: false)
         level = LevelController.shared.makeSecondLevel()
+//        level = LevelController.shared.makeFirstLevel()
         
         setUpPhysics()
         levelSetUp()
@@ -204,6 +218,10 @@ class GameScene: SKScene {
                 redBlockGravityChange()
             case "2":
                 blueBlockGravityChange()
+            case "3":
+                yelloBlockGravityChange()
+            case "4" :
+                node.physicsBody?.isDynamic = !node.physicsBody!.isDynamic
             default:
                 print("nothing")
             }
@@ -269,7 +287,7 @@ extension GameScene: SKPhysicsContactDelegate {
             gameWinCheck()
             
         default:
-            print("nope")
+            print("contact did start Default hit")
         }
     }
     
@@ -290,7 +308,7 @@ extension GameScene: SKPhysicsContactDelegate {
             level?.blocks[3].isInPlace = false
             
         default:
-            print("nope")
+            print("contact did end Default hit")
         }
     }
 }
@@ -299,38 +317,45 @@ extension GameScene {
     //MARK: Gravity funtions
     
     func redBlockGravityChange() {
-        let currentDX = physicsWorld.gravity.dx
-        let currentDY = physicsWorld.gravity.dy
-        let currentGravityVector = CGVector(dx: currentDX, dy: currentDY)
-        switch currentGravityVector {
-        case CGVector(dx: 10, dy: 0):
-            physicsWorld.gravity = CGVector(dx: 0, dy: 10)
-        case CGVector(dx: 0, dy: 10):
-            physicsWorld.gravity = CGVector(dx: -10, dy: 0)
-        case CGVector(dx: -10, dy: 0):
-            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
-        case CGVector(dx: 0, dy: -10):
-            physicsWorld.gravity = CGVector(dx: 10, dy: 0)
-        default:
-            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+        switch currentDirection {
+        case .down:
+            currentDirection = Direction.right
+        case .right:
+            currentDirection = Direction.up
+        case .up:
+            currentDirection = Direction.left
+        case .left:
+            currentDirection = Direction.down
         }
     }
     
     func blueBlockGravityChange() {
-        let currentDX = physicsWorld.gravity.dx
-        let currentDY = physicsWorld.gravity.dy
-        let currentGravityVector = CGVector(dx: currentDX, dy: currentDY)
-        switch currentGravityVector {
-        case CGVector(dx: 10, dy: 0):
-            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
-        case CGVector(dx: 0, dy: -10):
-            physicsWorld.gravity = CGVector(dx: -10, dy: 0)
-        case CGVector(dx: -10, dy: 0):
-            physicsWorld.gravity = CGVector(dx: 0, dy: 10)
-        case CGVector(dx: 0, dy: 10):
-            physicsWorld.gravity = CGVector(dx: 10, dy: 0)
-        default:
-            physicsWorld.gravity = CGVector(dx: 0, dy: -10)
+        switch currentDirection {
+        case .down:
+            currentDirection = Direction.left
+        case .left:
+            currentDirection = Direction.up
+        case .up:
+            currentDirection = Direction.right
+        case .right:
+            currentDirection = Direction.down
         }
     }
+    
+    func yelloBlockGravityChange() {
+        switch currentDirection {
+        case .down:
+            currentDirection = Direction.up
+        case .up:
+            currentDirection = Direction.down
+        case .right:
+            currentDirection = Direction.left
+        case .left:
+            currentDirection = Direction.right
+        }
+    }
+}
+
+enum Direction {
+    case up, down, left, right
 }
