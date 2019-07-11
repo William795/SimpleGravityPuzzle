@@ -11,12 +11,12 @@ import Foundation
 class Pack {
     
     var isCompleted: Bool
-    let levels: [Level]
     var purchased: Bool
+    var levels: [Level]
     
-    init(isCompleted: Bool, levels: [Level], purchased: Bool) {
+    init(isCompleted: Bool, purchased: Bool, levels: [Level]) {
         self.isCompleted = isCompleted
-        self.levels = levels
         self.purchased = purchased
+        self.levels = levels
     }
 }

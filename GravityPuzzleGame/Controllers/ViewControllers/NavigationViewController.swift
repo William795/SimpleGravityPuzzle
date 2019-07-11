@@ -1,5 +1,5 @@
 //
-//  TitleScreenViewController.swift
+//  NavigationViewController.swift
 //  GravityPuzzleGame
 //
 //  Created by William Moody on 7/10/19.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class TitleScreenViewController: UIViewController {
+class NavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
     }
     
 

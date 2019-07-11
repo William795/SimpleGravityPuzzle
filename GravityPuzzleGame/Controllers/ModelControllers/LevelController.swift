@@ -61,4 +61,10 @@ class LevelController {
         }
         return level
     }
+    
+    func makePackOneLevelArray() -> [Level] {
+        let packOneArray = [makeFirstLevel(), makeSecondLevel(), makeFirstLevel(), makeSecondLevel(), makeFirstLevel(), makeSecondLevel(), makeFirstLevel(), makeSecondLevel(), makeFirstLevel(), makeSecondLevel(),]
+        
+        return packOneArray
+    }
 }

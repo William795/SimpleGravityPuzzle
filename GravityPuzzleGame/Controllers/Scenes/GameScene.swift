@@ -37,10 +37,6 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        
-        level = LevelController.shared.makeSecondLevel()
-//        level = LevelController.shared.makeFirstLevel()
-        
         setUpPhysics()
         levelSetUp()
     }
@@ -183,11 +179,11 @@ class GameScene: SKScene {
         makePerimeterWall(side: rightSide, size: rightSize)
         
         let topSide = CGPoint(x: frame.midX, y: frame.maxY)
-        let topSize = topAndBottomBorders
+        let topSize = topBorder
         makePerimeterWall(side: topSide, size: topSize)
         
         let bottomSide = CGPoint(x: frame.midX, y: frame.minY)
-        let bottomSize = topAndBottomBorders
+        let bottomSize = bottomBorder
         makePerimeterWall(side: bottomSide, size: bottomSize)
     }
     
@@ -244,14 +240,8 @@ class GameScene: SKScene {
     }
     
     func gameWon() {
-        //MARK: TODO - replace with something better (UIKit view?)
-        let label = SKLabelNode(text: "You Win!")
-        label.fontSize = 50
-        label.fontColor = .white
-        label.position = CGPoint(x: frame.midX, y: frame.midY)
-        label.zPosition = ZPosition.label
-        
-        addChild(label)
+
+        self.removeFromParent()
         levelFinished = true
     }
 }

@@ -1,5 +1,5 @@
 //
-//  TitleScreenViewController.swift
+//  GameWonViewController.swift
 //  GravityPuzzleGame
 //
 //  Created by William Moody on 7/10/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TitleScreenViewController: UIViewController {
+class GameWonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     }
     
 

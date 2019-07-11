@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class PackController {
+    
+    static let shared = PackController()
+    
+    var packOne = Pack(isCompleted: false, purchased: true, levels: LevelController.shared.makePackOneLevelArray())
+    
+}

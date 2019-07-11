@@ -28,6 +28,8 @@
 		92E594EA22D6551B00FC02B0 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */; };
 		92E594EC22D6552600FC02B0 /* PackSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */; };
 		92E594EF22D662C400FC02B0 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */; };
+		92E594F122D684E400FC02B0 /* GameWonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594F022D684E400FC02B0 /* GameWonViewController.swift */; };
+		92E594F322D6A57500FC02B0 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594F222D6A57500FC02B0 /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackSelectViewController.swift; sourceTree = "<group>"; };
 		92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
+		92E594F022D684E400FC02B0 /* GameWonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWonViewController.swift; sourceTree = "<group>"; };
+		92E594F222D6A57500FC02B0 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 			children = (
 				9248E1D322D3B6A700114C5A /* ViewControllers */,
 				9248E1D422D3B6AF00114C5A /* ModelControllers */,
+				9248E1CE22D3B67A00114C5A /* Scenes */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,10 +199,12 @@
 		9248E1D322D3B6A700114C5A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				92E594F222D6A57500FC02B0 /* NavigationViewController.swift */,
 				9248E19F22D3B31400114C5A /* GameViewController.swift */,
 				92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */,
 				92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */,
 				92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */,
+				92E594F022D684E400FC02B0 /* GameWonViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -224,7 +231,6 @@
 		92E594ED22D6629000FC02B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9248E1CE22D3B67A00114C5A /* Scenes */,
 				9248E1A122D3B31400114C5A /* Main.storyboard */,
 				92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */,
 			);
@@ -364,6 +370,7 @@
 			files = (
 				9248E1D622D3B6C000114C5A /* Level.swift in Sources */,
 				9248E1CD22D3B64900114C5A /* Pack.swift in Sources */,
+				92E594F122D684E400FC02B0 /* GameWonViewController.swift in Sources */,
 				9248E1D222D3B69A00114C5A /* PackController.swift in Sources */,
 				92E594E822D6550B00FC02B0 /* TitleScreenViewController.swift in Sources */,
 				92E594E622D6474000FC02B0 /* WallController.swift in Sources */,
@@ -373,6 +380,7 @@
 				924AE13D22D51347001D0C8A /* LevelController.swift in Sources */,
 				9248E1A022D3B31400114C5A /* GameViewController.swift in Sources */,
 				92E594EC22D6552600FC02B0 /* PackSelectViewController.swift in Sources */,
+				92E594F322D6A57500FC02B0 /* NavigationViewController.swift in Sources */,
 				9248E1DC22D3B73600114C5A /* Wall.swift in Sources */,
 				92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */,
 				9248E19822D3B31400114C5A /* AppDelegate.swift in Sources */,
