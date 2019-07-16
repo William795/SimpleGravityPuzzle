@@ -22,6 +22,9 @@ enum WallSizes {
     static let halfHorizontalWall: CGSize = CGSize(width: screenSize.width / 2, height: screenSize.height/40)
     static let halfVerticalWall: CGSize = CGSize(width: screenSize.width / 20, height: screenSize.height/2)
     
+    static let thirdHorizontalWall: CGSize = CGSize(width: screenSize.width / 3, height: screenSize.height/40)
+    static let thirdVerticalWall: CGSize = CGSize(width: screenSize.width / 20, height: screenSize.height/3)
+    
     static let quarterHorizonalWall: CGSize = CGSize(width: screenSize.width/4, height: screenSize.height/40)
     static let quarterVerticalWall: CGSize = CGSize(width: screenSize.width/20, height: screenSize.height/4)
     

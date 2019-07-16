@@ -24,6 +24,7 @@
 		924AE13D22D51347001D0C8A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13C22D51347001D0C8A /* LevelController.swift */; };
 		92890DF822DCD5A000689A8D /* Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DF722DCD5A000689A8D /* Positions.swift */; };
 		92890DFA22DCD5DA00689A8D /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DF922DCD5DA00689A8D /* Sizes.swift */; };
+		92890DFC22DE2E6800689A8D /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DFB22DE2E6800689A8D /* IntExtention.swift */; };
 		92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BFDD3E22D3DA8700470085 /* Settings.swift */; };
 		92E594E622D6474000FC02B0 /* WallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E522D6474000FC02B0 /* WallController.swift */; };
 		92E594E822D6550B00FC02B0 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */; };
@@ -75,6 +76,7 @@
 		924AE13C22D51347001D0C8A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
 		92890DF722DCD5A000689A8D /* Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positions.swift; sourceTree = "<group>"; };
 		92890DF922DCD5DA00689A8D /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
+		92890DFB22DE2E6800689A8D /* IntExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
 		92BFDD3E22D3DA8700470085 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		92E594E522D6474000FC02B0 /* WallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallController.swift; sourceTree = "<group>"; };
 		92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				92BFDD3E22D3DA8700470085 /* Settings.swift */,
+				92890DFB22DE2E6800689A8D /* IntExtention.swift */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				92E594E622D6474000FC02B0 /* WallController.swift in Sources */,
 				924AE13B22D51052001D0C8A /* BlockController.swift in Sources */,
 				9248E19E22D3B31400114C5A /* GameScene.swift in Sources */,
+				92890DFC22DE2E6800689A8D /* IntExtention.swift in Sources */,
 				92E594EF22D662C400FC02B0 /* LevelCollectionViewCell.swift in Sources */,
 				924AE13D22D51347001D0C8A /* LevelController.swift in Sources */,
 				9248E1A022D3B31400114C5A /* GameViewController.swift in Sources */,
