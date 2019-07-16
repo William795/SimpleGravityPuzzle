@@ -19,7 +19,12 @@ class GameScene: SKScene {
     var blockTwo: SKSpriteNode?
     var blockThree: SKSpriteNode?
     var blockFour: SKSpriteNode?
+    var gravityTeller: SKSpriteNode?
     //MARK: Scene Set Up
+    
+//    let wallColor = UIColor(displayP3Red: 0.16, green: 0.16, blue: 0.16, alpha: 1)
+//    let wallColor = UIColor(displayP3Red: 0.27, green: 0.27, blue: 0.31, alpha: 1)
+    let wallColor = UIColor(displayP3Red: 0.44, green: 0.44, blue: 0.42, alpha: 1)
     
     var currentDirection: Direction = .down {
         didSet {
@@ -37,6 +42,7 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        backgroundColor = UIColor(displayP3Red: 0.1, green: 0.11, blue: 0.13, alpha: 1)
         setUpPhysics()
         levelSetUp()
     }
@@ -50,6 +56,7 @@ class GameScene: SKScene {
         setUpWalls()
         setUpBlocks()
         makeGravityTeller()
+        gravityTeller?.run(SKAction.rotate(toAngle: 270.degreesToRadians, duration: 0.1))
     }
     
     func setUpWalls() {
@@ -73,9 +80,12 @@ class GameScene: SKScene {
     func makeBlock(startPosition: CGPoint, colorRef: Int, propertyRef: Int, blockID: Int, size: CGSize) {
         let block = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: size)
         block.name = "\(propertyRef)"
+        block.texture = SKTexture(imageNamed: "Rotation")
+        block.colorBlendFactor = 1
+        
         block.position = startPosition
         block.zPosition = ZPosition.gameElements
-        block.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width + 1, height: size.height + 1))
+        block.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width + 3, height: size.height + 3))
         block.physicsBody?.collisionBitMask = PhysicsCategorys.wall
         block.physicsBody?.restitution = 0.0
         block.physicsBody?.allowsRotation = false
@@ -87,9 +97,9 @@ class GameScene: SKScene {
         var color = UIColor(ciColor: .red)
         switch colorRef {
         case 1:
-            color = .red
+            color = UIColor(displayP3Red: 0.94, green: 0.31, blue: 0.32, alpha: 1)
         case 2:
-            color = .blue
+            color = UIColor(displayP3Red: 0.15, green: 0.87, blue: 0.81, alpha: 1)
         case 3:
             color = .yellow
         case 4:
@@ -105,16 +115,22 @@ class GameScene: SKScene {
         case 1:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointOne
+            sprite.texture = SKTexture(imageNamed: "Rotation")
+            sprite.colorBlendFactor = 1
             blockOne = sprite
             return blockOne ?? sprite
         case 2:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockTwo
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointTwo
+            sprite.texture = SKTexture(imageNamed: "LeftRotation")
+            sprite.colorBlendFactor = 1
             blockTwo = sprite
             return blockTwo ?? sprite
         case 3:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockThree
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointThree
+            sprite.texture = SKTexture(imageNamed: "upDown")
+            sprite.colorBlendFactor = 1
             blockThree = sprite
             return blockThree ?? sprite
         case 4:
@@ -160,7 +176,7 @@ class GameScene: SKScene {
     //MARK: Wall Set Up
     
     func makeWallFrom(size: CGSize, position: CGPoint) {
-        let wall = SKSpriteNode(color: .gray, size: size)
+        let wall = SKSpriteNode(color: wallColor, size: size)
         wall.position = position
         wall.zPosition = ZPosition.gameElements
         wall.physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -189,7 +205,7 @@ class GameScene: SKScene {
     }
     
     func makePerimeterWall(side: CGPoint, size: CGSize) {
-        let wall = SKSpriteNode(color: .gray, size: size)
+        let wall = SKSpriteNode(color: wallColor, size: size)
         wall.position = side
         wall.zPosition = ZPosition.gameElements
         wall.physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -201,17 +217,30 @@ class GameScene: SKScene {
     }
     
     func makeGravityTeller() {
-        let gravityTeller = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: .darkGray, size: CGSize(width: screenSize.width / 10, height: screenSize.height / 20))
-        gravityTeller.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.08)
-        gravityTeller.colorBlendFactor = 1.0
-        gravityTeller.zPosition = ZPosition.label
-//        gravityTeller.physicsBody = SKPhysicsBody(
-        gravityTeller.physicsBody = SKPhysicsBody(circleOfRadius: gravityTeller.size.width / 2)
-        gravityTeller.physicsBody?.categoryBitMask = PhysicsCategorys.gravityTeller
-        gravityTeller.physicsBody?.isDynamic = false
+        gravityTeller = SKSpriteNode(imageNamed: "directionalArrow")
+        gravityTeller?.size = CGSize(width: screenSize.width / 10, height: screenSize.height / 20)
+        gravityTeller?.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.08)
+        gravityTeller?.zPosition = ZPosition.label
+        gravityTeller?.physicsBody?.isDynamic = false
         
-        addChild(gravityTeller)
+        addChild(gravityTeller!)
     }
+    
+    //MARK: - Gravity informer
+    //using a roatating sprite possably change it out for a more physics oriented solution
+    
+    //    func makeGravityTeller() {
+    //        let gravityTeller = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: .darkGray, size: CGSize(width: screenSize.width / 10, height: screenSize.height / 20))
+    //        gravityTeller.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.08)
+    //        gravityTeller.colorBlendFactor = 1.0
+    //        gravityTeller.zPosition = ZPosition.label
+    //        gravityTeller.physicsBody = SKPhysicsBody(
+    //        gravityTeller.physicsBody = SKPhysicsBody(circleOfRadius: gravityTeller.size.width / 2)
+    //        gravityTeller.physicsBody?.categoryBitMask = PhysicsCategorys.gravityTeller
+    //        gravityTeller.physicsBody?.isDynamic = false
+    //
+    //        addChild(gravityTeller)
+    //    }
     
     //MARK: Touch Functions
     
@@ -317,24 +346,24 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-//        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-//
-//        switch contactMask {
-//        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
-//            level?.blocks[0].isInPlace = false
-//
-//        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
-//            level?.blocks[1].isInPlace = false
-//
-//        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
-//            level?.blocks[2].isInPlace = false
-//
-//        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
-//            level?.blocks[3].isInPlace = false
-//
-//        default:
-//            print("contact did end Default hit")
-//        }
+        //        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        //
+        //        switch contactMask {
+        //        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
+        //            level?.blocks[0].isInPlace = false
+        //
+        //        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
+        //            level?.blocks[1].isInPlace = false
+        //
+        //        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
+        //            level?.blocks[2].isInPlace = false
+        //
+        //        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
+        //            level?.blocks[3].isInPlace = false
+        //
+        //        default:
+        //            print("contact did end Default hit")
+        //        }
     }
     
     
@@ -344,6 +373,7 @@ extension GameScene {
     //MARK: Gravity funtions
     
     func redBlockGravityChange() {
+        gravityTeller?.run(SKAction.rotate(byAngle: 90.degreesToRadians, duration: 0.5))
         switch currentDirection {
         case .down:
             currentDirection = Direction.right
@@ -357,6 +387,7 @@ extension GameScene {
     }
     
     func blueBlockGravityChange() {
+        gravityTeller?.run(SKAction.rotate(byAngle: -90.degreesToRadians, duration: 0.5))
         switch currentDirection {
         case .down:
             currentDirection = Direction.left
@@ -370,6 +401,7 @@ extension GameScene {
     }
     
     func yelloBlockGravityChange() {
+        gravityTeller?.run(SKAction.rotate(byAngle: 180.degreesToRadians, duration: 1.0))
         switch currentDirection {
         case .down:
             currentDirection = Direction.up

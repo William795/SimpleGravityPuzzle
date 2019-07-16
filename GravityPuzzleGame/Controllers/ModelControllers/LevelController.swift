@@ -75,6 +75,23 @@ class LevelController {
         return level
     }
     
+    func makeFithLevel() -> Level {
+        var level = Level(blocks: [], blockReference: [1,2,3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false)
+        
+        let blockPositions: [[CGPoint]] = [BlockController.shared.setCustomBlockPosition(blockX: 0.1, blockY: 0.6, endX: 0.15, endY: 0.92), BlockController.shared.setCustomBlockPosition(blockX: 0.1, blockY: 0.5, endX: 0.15, endY: 0.16), [presetBlockCGPoint.bottomRightCorner, presetBlockCGPoint.topRightCornerEndPoint]]
+        let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.3, Y: 0.55, size: WallSizes.halfHorizontalWall),
+                             WallController.shared.makeWallWith(X: 0.2, Y: 0.44, size: WallSizes.quarterHorizonalWall),
+                             WallController.shared.makeWallWith(X: 0.2, Y: 0.66, size: WallSizes.quarterHorizonalWall),
+                             WallController.shared.makeWallWith(X: 0.65, Y: 0.15, size: WallController.shared.WallSize(widthMultiplyer: 0.2, heightMultiplyer: 0.6)),
+                             WallController.shared.makeWallWith(X: 0.65, Y: 0.95, size: WallController.shared.WallSize(widthMultiplyer: 0.2, heightMultiplyer: 0.6)),
+                             WallController.shared.makeWallWith(X: 0.55, Y: 0.55, size: WallSizes.thickFullVerticalWall),
+                             WallController.shared.makeWallWith(X: 0.9, Y: 0.55, size: WallSizes.quarterHorizonalWall)
+        ]
+        setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
+        
+        return level
+    }
+    
     private func setUpLevel(level: inout Level, blockPositionArray: [[CGPoint]], walls: [Wall]) {
         let blockSize = CGSize(width: screenSize.width / 10 * level.levelSizeMultiplyer, height: screenSize.height / 20 * level.levelSizeMultiplyer)
         var loopCount = 0
@@ -92,7 +109,7 @@ class LevelController {
     }
     
     func makePackOneLevelArray() -> [Level] {
-        let packOneArray = [makeFirstLevel(), makeSecondLevel(), makeFourthLevel(), makeThirdLevel()]
+        let packOneArray = [makeFirstLevel(), makeSecondLevel(), makeFourthLevel(), makeThirdLevel(), makeFithLevel()]
         
         return packOneArray
     }
