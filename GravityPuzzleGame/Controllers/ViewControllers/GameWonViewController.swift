@@ -10,12 +10,21 @@ import UIKit
 
 class GameWonViewController: UIViewController {
 
+    weak var delegate: GameViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        print("won screen")
     }
     
 
+    @IBAction func levelSelectButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        delegate?.popViews()
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -26,4 +35,8 @@ class GameWonViewController: UIViewController {
     }
     */
 
+}
+
+protocol GameViewControllerDelegate: class {
+    func popViews()
 }

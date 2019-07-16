@@ -18,7 +18,7 @@ class LevelSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pack = PackController.shared.packOne
     }
     
 

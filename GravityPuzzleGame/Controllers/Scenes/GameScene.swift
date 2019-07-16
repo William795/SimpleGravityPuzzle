@@ -49,6 +49,7 @@ class GameScene: SKScene {
     func levelSetUp() {
         setUpWalls()
         setUpBlocks()
+        makeGravityTeller()
     }
     
     func setUpWalls() {
@@ -65,7 +66,6 @@ class GameScene: SKScene {
         for block in level?.blocks ?? [] {
             makeBlock(startPosition: block.startingPoint, colorRef: block.colorReference, propertyRef: block.propertiesReference, blockID: blockNumber, size: block.blockSize)
             makeEndPoint(endPosition: block.goalPoint, endPointID: blockNumber, colorRef: block.colorReference, size: block.blockSize)
-            block.isInPlace = false
             blockNumber += 1
         }
     }
@@ -77,6 +77,7 @@ class GameScene: SKScene {
         block.zPosition = ZPosition.gameElements
         block.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width + 1, height: size.height + 1))
         block.physicsBody?.collisionBitMask = PhysicsCategorys.wall
+        block.physicsBody?.restitution = 0.0
         block.physicsBody?.allowsRotation = false
         
         addChild(blockPhysicsBody(sprite: block, ID: blockID))
@@ -193,9 +194,23 @@ class GameScene: SKScene {
         wall.zPosition = ZPosition.gameElements
         wall.physicsBody = SKPhysicsBody(rectangleOf: size)
         wall.physicsBody?.categoryBitMask = PhysicsCategorys.wall
+        wall.physicsBody?.collisionBitMask = PhysicsCategorys.blockOne
         wall.physicsBody?.isDynamic = false
         
         addChild(wall)
+    }
+    
+    func makeGravityTeller() {
+        let gravityTeller = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: .darkGray, size: CGSize(width: screenSize.width / 10, height: screenSize.height / 20))
+        gravityTeller.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.08)
+        gravityTeller.colorBlendFactor = 1.0
+        gravityTeller.zPosition = ZPosition.label
+//        gravityTeller.physicsBody = SKPhysicsBody(
+        gravityTeller.physicsBody = SKPhysicsBody(circleOfRadius: gravityTeller.size.width / 2)
+        gravityTeller.physicsBody?.categoryBitMask = PhysicsCategorys.gravityTeller
+        gravityTeller.physicsBody?.isDynamic = false
+        
+        addChild(gravityTeller)
     }
     
     //MARK: Touch Functions
@@ -240,8 +255,7 @@ class GameScene: SKScene {
     }
     
     func gameWon() {
-
-        self.removeFromParent()
+        isGameWon = true
         levelFinished = true
     }
 }
@@ -253,54 +267,77 @@ extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
+        
         switch contactMask {
         case PhysicsCategorys.wall | PhysicsCategorys.blockOne:
             print("contact")
         case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
             level?.blocks[0].isInPlace = true
-            
+            contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyA.node?.removeFromParent()
+            }
+            contact.bodyB.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyB.node?.removeFromParent()
+            }
             gameWinCheck()
             
         case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
             level?.blocks[1].isInPlace = true
-            
+            contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyA.node?.removeFromParent()
+            }
+            contact.bodyB.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyB.node?.removeFromParent()
+            }
             gameWinCheck()
             
         case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
             level?.blocks[2].isInPlace = true
-            
+            contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyA.node?.removeFromParent()
+            }
+            contact.bodyB.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyB.node?.removeFromParent()
+            }
             gameWinCheck()
             
         case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
             level?.blocks[3].isInPlace = true
-            
+            contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyA.node?.removeFromParent()
+            }
+            contact.bodyB.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyB.node?.removeFromParent()
+            }
             gameWinCheck()
             
         default:
-            print("contact did start Default hit")
+            print("contact did start, Default hit")
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        switch contactMask {
-        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
-            level?.blocks[0].isInPlace = false
-            
-        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
-            level?.blocks[1].isInPlace = false
-            
-        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
-            level?.blocks[2].isInPlace = false
-            
-        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
-            level?.blocks[3].isInPlace = false
-            
-        default:
-            print("contact did end Default hit")
-        }
+//        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+//
+//        switch contactMask {
+//        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
+//            level?.blocks[0].isInPlace = false
+//
+//        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
+//            level?.blocks[1].isInPlace = false
+//
+//        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
+//            level?.blocks[2].isInPlace = false
+//
+//        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
+//            level?.blocks[3].isInPlace = false
+//
+//        default:
+//            print("contact did end Default hit")
+//        }
     }
+    
+    
 }
 
 extension GameScene {

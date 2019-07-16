@@ -22,6 +22,8 @@
 		9248E1DC22D3B73600114C5A /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1DB22D3B73600114C5A /* Wall.swift */; };
 		924AE13B22D51052001D0C8A /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13A22D51052001D0C8A /* BlockController.swift */; };
 		924AE13D22D51347001D0C8A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13C22D51347001D0C8A /* LevelController.swift */; };
+		92890DF822DCD5A000689A8D /* Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DF722DCD5A000689A8D /* Positions.swift */; };
+		92890DFA22DCD5DA00689A8D /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DF922DCD5DA00689A8D /* Sizes.swift */; };
 		92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BFDD3E22D3DA8700470085 /* Settings.swift */; };
 		92E594E622D6474000FC02B0 /* WallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E522D6474000FC02B0 /* WallController.swift */; };
 		92E594E822D6550B00FC02B0 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */; };
@@ -71,6 +73,8 @@
 		9248E1DB22D3B73600114C5A /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		924AE13A22D51052001D0C8A /* BlockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
 		924AE13C22D51347001D0C8A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
+		92890DF722DCD5A000689A8D /* Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positions.swift; sourceTree = "<group>"; };
+		92890DF922DCD5DA00689A8D /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		92BFDD3E22D3DA8700470085 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		92E594E522D6474000FC02B0 /* WallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallController.swift; sourceTree = "<group>"; };
 		92E594E722D6550B00FC02B0 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				9248E1CF22D3B68700114C5A /* Controllers */,
 				9248E1D022D3B68E00114C5A /* Models */,
 				92BFDD4022D3DA8C00470085 /* Template */,
+				92890DF022DCD42F00689A8D /* PositionsAndSizes */,
 			);
 			path = GravityPuzzleGame;
 			sourceTree = "<group>";
@@ -218,6 +223,15 @@
 				92E594E522D6474000FC02B0 /* WallController.swift */,
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		92890DF022DCD42F00689A8D /* PositionsAndSizes */ = {
+			isa = PBXGroup;
+			children = (
+				92890DF722DCD5A000689A8D /* Positions.swift */,
+				92890DF922DCD5DA00689A8D /* Sizes.swift */,
+			);
+			path = PositionsAndSizes;
 			sourceTree = "<group>";
 		};
 		92BFDD4022D3DA8C00470085 /* Template */ = {
@@ -368,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92890DF822DCD5A000689A8D /* Positions.swift in Sources */,
 				9248E1D622D3B6C000114C5A /* Level.swift in Sources */,
 				9248E1CD22D3B64900114C5A /* Pack.swift in Sources */,
 				92E594F122D684E400FC02B0 /* GameWonViewController.swift in Sources */,
@@ -383,6 +398,7 @@
 				92E594F322D6A57500FC02B0 /* NavigationViewController.swift in Sources */,
 				9248E1DC22D3B73600114C5A /* Wall.swift in Sources */,
 				92BFDD3F22D3DA8700470085 /* Settings.swift in Sources */,
+				92890DFA22DCD5DA00689A8D /* Sizes.swift in Sources */,
 				9248E19822D3B31400114C5A /* AppDelegate.swift in Sources */,
 				9248E1D822D3B71400114C5A /* Block.swift in Sources */,
 				92E594EA22D6551B00FC02B0 /* LevelSelectViewController.swift in Sources */,

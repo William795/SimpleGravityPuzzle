@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class Level {
+struct Level {
     
     var blocks: [Block]
     let blockReference: [Int]
@@ -16,11 +16,11 @@ class Level {
     var walls: [Wall]
     var isComplete: Bool
     
-    init(blocks: [Block], blockReference: [Int], levelSizeMultiplyer: CGFloat, walls: [Wall], isComplete: Bool) {
-        self.blocks = blocks
-        self.blockReference = blockReference
-        self.levelSizeMultiplyer = levelSizeMultiplyer
-        self.walls = walls
-        self.isComplete = isComplete
-    }
+//    init(blocks: [Block], blockReference: [Int], levelSizeMultiplyer: CGFloat, walls: [Wall], isComplete: Bool) {
+//        self.blocks = blocks
+//        self.blockReference = blockReference
+//        self.levelSizeMultiplyer = levelSizeMultiplyer
+//        self.walls = walls
+//        self.isComplete = isComplete
+//    }
 }

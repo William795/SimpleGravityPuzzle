@@ -70,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dTa-N8-MRf">
-                                <rect key="frame" x="41.5" y="184" width="331" height="538"/>
+                                <rect key="frame" x="41.5" y="206" width="331" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cr1-SO-DiW">
                                     <size key="itemSize" width="72" height="74"/>
@@ -158,16 +158,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Level Select"/>
                                         <connections>
-                                            <segue destination="Sft-yc-l95" kind="show" id="3Ce-d8-rVt"/>
+                                            <action selector="levelSelectButtonTapped:" destination="TO3-09-sQ5" eventType="touchUpInside" id="IUb-F0-JJV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9x-Xo-m7v">
-                                        <rect key="frame" x="57" y="193" width="77" height="30"/>
+                                        <rect key="frame" x="61" y="193" width="70" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="PackSelect"/>
-                                        <connections>
-                                            <segue destination="nBE-z9-4Jz" kind="show" id="mmv-Jc-8F5"/>
-                                        </connections>
+                                        <state key="normal" title="Play again"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,8 +234,4 @@
     <resources>
         <image name="checkmark" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="CWP-fO-75U"/>
-        <segue reference="3Ce-d8-rVt"/>
-    </inferredMetricsTieBreakers>
 </document>

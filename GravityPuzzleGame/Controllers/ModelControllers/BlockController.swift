@@ -21,7 +21,7 @@ class BlockController {
     
     func setUpBlock(blockStart: CGPoint, goalPoint: CGPoint, blockSize: CGSize, blockPropertyReferance: Int) -> Block  {
         
-        let block = identifyBlock(blockRef: blockPropertyReferance)
+        var block = identifyBlock(blockRef: blockPropertyReferance)
         block.blockSize = blockSize
         block.startingPoint = blockStart
         block.goalPoint = goalPoint

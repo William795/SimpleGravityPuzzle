@@ -13,8 +13,14 @@ class WallController {
     static let shared = WallController()
     
     
-//    func makeWall(position: CGPoint, size: CGSize) {
-//        
-//    }
+    func makeWallWith(X: CGFloat, Y: CGFloat, size: CGSize) -> Wall {
+        let wall = Wall(size: size, position: CGPoint(x: screenSize.maxX * X, y: screenSize.maxY * Y))
+        
+        return wall
+    }
+    
+    func WallSize(widthMultiplyer: CGFloat, heightMultiplyer: CGFloat) -> CGSize {
+        return CGSize(width: screenSize.width * widthMultiplyer, height: screenSize.height * heightMultiplyer)
+    }
     
 }
