@@ -16,6 +16,7 @@ class GameWonViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         print("won screen")
+        gameState = 0
     }
     
 
@@ -23,20 +24,13 @@ class GameWonViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         delegate?.popViews()
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func playAgainButtonTapped(_ sender: Any) {
+        delegate?.playAgainTapped()
+        self.view.removeFromSuperview()
     }
-    */
-
 }
 
 protocol GameViewControllerDelegate: class {
     func popViews()
+    func playAgainTapped()
 }
