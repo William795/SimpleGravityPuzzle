@@ -80,7 +80,7 @@ class GameScene: SKScene {
     func makeBlock(startPosition: CGPoint, colorRef: Int, propertyRef: Int, blockID: Int, size: CGSize) {
         let block = SKSpriteNode(color: getBlockColor(colorRef: colorRef), size: size)
         block.name = "\(propertyRef)"
-        block.texture = SKTexture(imageNamed: "Rotation")
+        block.texture = getSpriteTextureFrom(propertyRef: propertyRef)
         block.colorBlendFactor = 1
         
         block.position = startPosition
@@ -110,26 +110,36 @@ class GameScene: SKScene {
         return color
     }
     
+    func getSpriteTextureFrom(propertyRef: Int) -> SKTexture {
+        switch propertyRef {
+        case 1:
+            return SKTexture(imageNamed: "LeftRotation")
+        case 2:
+            return SKTexture(imageNamed: "Rotation")
+        case 3:
+            return SKTexture(imageNamed: "upDown")
+        default:
+            return SKTexture(imageNamed: "LeftRotation")
+        }
+    }
+    
     func blockPhysicsBody(sprite: SKSpriteNode, ID: Int) -> SKSpriteNode {
         switch ID {
         case 1:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointOne
-            sprite.texture = SKTexture(imageNamed: "Rotation")
             sprite.colorBlendFactor = 1
             blockOne = sprite
             return blockOne ?? sprite
         case 2:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockTwo
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointTwo
-            sprite.texture = SKTexture(imageNamed: "LeftRotation")
             sprite.colorBlendFactor = 1
             blockTwo = sprite
             return blockTwo ?? sprite
         case 3:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockThree
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointThree
-            sprite.texture = SKTexture(imageNamed: "upDown")
             sprite.colorBlendFactor = 1
             blockThree = sprite
             return blockThree ?? sprite
@@ -284,7 +294,7 @@ class GameScene: SKScene {
     }
     
     func gameWon() {
-        isGameWon = true
+        gameState = 1
         levelFinished = true
     }
 }

@@ -18,6 +18,7 @@ class LevelSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameState = 2
         pack = PackController.shared.packOne
     }
     
