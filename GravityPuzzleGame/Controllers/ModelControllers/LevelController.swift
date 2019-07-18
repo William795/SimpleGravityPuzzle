@@ -15,14 +15,14 @@ class LevelController {
     //MARK: Pack 1
     
     func makeLevelOne() -> Level {
-        var level = Level(blocks: [], blockReference: [1], levelSizeMultiplyer: 2, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1], levelSizeMultiplyer: 2, walls: [], isComplete: false, levelRef: 1)
         let blockPositionArray = [[presetBlockCGPoint.bottomLeftCorner, presetBlockCGPoint.topLeftCornerEndPoint]]
         setUpLevel(level: &level, blockPositionArray: blockPositionArray, walls: [])
         return level
     }
     
     func makeLevelTwo() -> Level {
-        var level = Level(blocks: [], blockReference: [2,1], levelSizeMultiplyer: 1.9, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [2,1], levelSizeMultiplyer: 1.9, walls: [], isComplete: false, levelRef: 2)
         
         let blockPositions = [[presetBlockCGPoint.bottomLeftCorner, presetBlockCGPoint.bottomRightCornerEndPoint], [presetBlockCGPoint.topLeftCorner, presetBlockCGPoint.topRightCornerEndPoint]]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.5, Y: 0.55, size: WallSizes.fullHorizontalWall),
@@ -38,7 +38,7 @@ class LevelController {
     }
     
     func makeLevelThree() -> Level {
-        var level = Level(blocks: [], blockReference: [1, 2], levelSizeMultiplyer: 2, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1, 2], levelSizeMultiplyer: 2, walls: [], isComplete: false, levelRef: 3)
         let blockPositions = [[presetBlockCGPoint.middle, presetBlockCGPoint.topRightCornerEndPoint],
                               [presetBlockCGPoint.bottomLeftCorner, presetBlockCGPoint.bottomRightCornerEndPoint]]
         
@@ -51,7 +51,7 @@ class LevelController {
     }
     
     func makeLevelFour() -> Level {
-    var level = Level(blocks: [], blockReference: [1,2], levelSizeMultiplyer: 1.5, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1,2], levelSizeMultiplyer: 1.5, walls: [], isComplete: false, levelRef: 4)
         
         let blockPositions = [[presetBlockCGPoint.topRightCorner, presetBlockCGPoint.bottomRightCornerEndPoint], [presetBlockCGPoint.topLeftCorner, presetBlockCGPoint.leftMinBottomFourthEndPoint]]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.5, Y: 0.5, size: WallSizes.fullVerticalWall),
@@ -67,7 +67,7 @@ class LevelController {
     }
     
     func makeLevelFive() -> Level {
-        var level = Level(blocks: [], blockReference: [1, 3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1, 3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false, levelRef: 5)
         
         let blockPositions: [[CGPoint]] = [[presetBlockCGPoint.bottomRightCorner, presetBlockCGPoint.bottomLeftCornerEndPoint], BlockController.shared.setCustomBlockPosition(blockX: 0.4, blockY: 0.6, endX: 0.4, endY: 0.4)]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.4, Y: 0.5, size: WallSizes.quarterHorizonalWall),
@@ -82,7 +82,7 @@ class LevelController {
     }
     
     func makeLevelSix() -> Level {
-        var level = Level(blocks: [], blockReference: [1,2,3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1,2,3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false, levelRef: 6)
         
         let blockPositions: [[CGPoint]] = [BlockController.shared.setCustomBlockPosition(blockX: 0.1, blockY: 0.6, endX: 0.15, endY: 0.92), BlockController.shared.setCustomBlockPosition(blockX: 0.1, blockY: 0.5, endX: 0.15, endY: 0.16), [presetBlockCGPoint.bottomRightCorner, presetBlockCGPoint.topRightCornerEndPoint]]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.3, Y: 0.55, size: WallSizes.halfHorizontalWall),
@@ -99,11 +99,11 @@ class LevelController {
     }
     
     func makeLevelSeven() -> Level {
-        var level = Level(blocks: [], blockReference: [2, 1, 3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [2, 1, 3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false, levelRef: 7)
         
-        let blockPositions: [[CGPoint]] = [BlockController.shared.setCustomBlockPosition(blockX: 0.15, blockY: 0.9, endX: 0.4, endY: 0.4),
-                                           BlockController.shared.setCustomBlockPosition(blockX: 0.85, blockY: 0.9, endX: 0.6, endY: 0.2),
-                                           BlockController.shared.setCustomBlockPosition(blockX: 0.85, blockY: 0.2, endX: 0.85, endY: 0.3)
+        let blockPositions: [[CGPoint]] = [BlockController.shared.setCustomBlockPosition(blockX: 0.15, blockY: 0.9, endX: 0.38, endY: 0.485),
+                                           BlockController.shared.setCustomBlockPosition(blockX: 0.85, blockY: 0.9, endX: 0.615, endY: 0.175),
+                                           BlockController.shared.setCustomBlockPosition(blockX: 0.85, blockY: 0.2, endX: 0.84, endY: 0.31)
                                            ]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.13, Y: 0.86, size: WallSizes.quarterHorizonalWall),
                              WallController.shared.makeWallWith(X: 0.87, Y: 0.86, size: WallSizes.quarterHorizonalWall),
@@ -119,7 +119,7 @@ class LevelController {
     }
     
     func makeLevelEight() -> Level {
-        var level = Level(blocks: [], blockReference: [1, 4], levelSizeMultiplyer: 1.5, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1, 4], levelSizeMultiplyer: 1.5, walls: [], isComplete: false, levelRef: 8)
         
         let blockPositions: [[CGPoint]] = [[presetBlockCGPoint.bottomLeftCorner, presetBlockCGPoint.topLeftCornerEndPoint], BlockController.shared.setCustomBlockPosition(blockX: 0.6, blockY: 0.15, endX: 0.6, endY: 0.92)]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.5, Y: 0.5, size: WallSizes.fullVerticalWall),
@@ -138,7 +138,7 @@ class LevelController {
     }
     
     func makeLevelNine() -> Level {
-        var level = Level(blocks: [], blockReference: [1, 2, 4], levelSizeMultiplyer: 1.4, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1, 2, 4], levelSizeMultiplyer: 1.4, walls: [], isComplete: false, levelRef: 9)
         
         let blockPositions: [[CGPoint]] = [BlockController.shared.setCustomBlockPosition(blockX: 0.9, blockY: 0.7, endX: 0.17, endY: 0.91), BlockController.shared.setCustomBlockPosition(blockX: 0.9, blockY: 0.3, endX: 0.17, endY: 0.27),[presetBlockCGPoint.bottomLeftCorner, presetBlockCGPoint.bottomRightCornerEndPoint]]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.5, Y: 0.22, size: WallSizes.fullHorizontalWall),
@@ -155,7 +155,7 @@ class LevelController {
     }
     
     func makeLevelTen() -> Level {
-        var level = Level(blocks: [], blockReference: [1, 2, 3, 4], levelSizeMultiplyer: 1.2, walls: [], isComplete: false)
+        var level = Level(blocks: [], blockReference: [1, 2, 3, 4], levelSizeMultiplyer: 1.2, walls: [], isComplete: false, levelRef: 10)
         
         let blockPositions: [[CGPoint]] = [BlockController.shared.setCustomBlockPosition(blockX: 0.15, blockY: 0.85, endX: 0.4, endY: 0.6), BlockController.shared.setCustomBlockPosition(blockX: 0.85, blockY: 0.85, endX: 0.6, endY: 0.6), BlockController.shared.setCustomBlockPosition(blockX: 0.15, blockY: 0.15, endX: 0.4, endY: 0.5), BlockController.shared.setCustomBlockPosition(blockX: 0.85, blockY: 0.15, endX: 0.6, endY: 0.5)]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0, Y: 0.8, size: WallSizes.thinHalfHorizontalWall),

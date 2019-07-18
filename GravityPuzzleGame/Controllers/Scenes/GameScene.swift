@@ -119,6 +119,8 @@ class GameScene: SKScene {
             return SKTexture(imageNamed: "Rotation")
         case 3:
             return SKTexture(imageNamed: "upDown")
+        case 4:
+            return SKTexture(imageNamed: "pause")
         default:
             return SKTexture(imageNamed: "LeftRotation")
         }
@@ -276,6 +278,11 @@ class GameScene: SKScene {
                 yelloBlockGravityChange()
             case "4" :
                 greenBlockGravityChange()
+                if node.physicsBody?.affectedByGravity ?? true {
+                    node.run(SKAction.setTexture(SKTexture(imageNamed: "pause")))
+                } else {
+                    node.run(SKAction.setTexture(SKTexture(imageNamed: "play")))
+                }
             default:
                 print("nothing")
             }
@@ -300,6 +307,16 @@ class GameScene: SKScene {
     func gameWon() {
         gameState = 1
         levelFinished = true
+        
+        var levelArray: [Level] = []
+        for level in PackController.shared.packOne.levels {
+            var completedLevel = level
+            if level.levelRef == self.level?.levelRef {
+                completedLevel.isComplete = true
+            }
+            levelArray.append(completedLevel)
+        }
+        PackController.shared.packOne.levels = levelArray
     }
 }
 

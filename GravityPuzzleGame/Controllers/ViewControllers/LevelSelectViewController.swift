@@ -22,6 +22,10 @@ class LevelSelectViewController: UIViewController {
         pack = PackController.shared.packOne
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        levelCollectionView.reloadData()
+    }
 
     
     // MARK: - Navigation
@@ -46,8 +50,16 @@ extension LevelSelectViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LevelCollectionViewCell
         
+        guard let level = pack?.levels[indexPath.row] else {return UICollectionViewCell()}
+        
         cell?.levelNumberLabel.text = "\(indexPath.row + 1)"
-        cell?.level = pack?.levels[indexPath.row]
+        cell?.level = level
+        
+        if level.isComplete {
+            cell?.checkMarkImage.isHidden = false
+        } else {
+            cell?.checkMarkImage.isHidden = true
+        }
         
         return cell ?? UICollectionViewCell()
     }

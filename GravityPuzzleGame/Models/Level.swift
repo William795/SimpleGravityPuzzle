@@ -15,6 +15,7 @@ struct Level {
     let levelSizeMultiplyer: CGFloat
     var walls: [Wall]
     var isComplete: Bool
+    let levelRef: Int
     
 //    init(blocks: [Block], blockReference: [Int], levelSizeMultiplyer: CGFloat, walls: [Wall], isComplete: Bool) {
 //        self.blocks = blocks
