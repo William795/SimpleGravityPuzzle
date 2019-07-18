@@ -17,6 +17,7 @@ class BlockController {
     let redBlockTemplate = Block(colorReference: 1, propertiesReference: 1, startingPoint: CGPoint(x: 110, y: 100), goalPoint: CGPoint(x: 0, y: 0), blockSize: CGSize(width: 0, height: 0), isInPlace: false)
     let blueBlockTemplate = Block(colorReference: 2, propertiesReference: 2, startingPoint: CGPoint(x: 110, y: 100), goalPoint: CGPoint(x: 0, y: 0), blockSize: CGSize(width: 0, height: 0), isInPlace: false)
     let yellowBlocktemplate = Block(colorReference: 3, propertiesReference: 3, startingPoint: CGPoint(x: 110, y: 100), goalPoint: CGPoint(x: 0, y: 0), blockSize: CGSize(width: 0, height: 0), isInPlace: false)
+    let greenBlocktemplate = Block(colorReference: 4, propertiesReference: 4, startingPoint: CGPoint(x: 110, y: 100), goalPoint: CGPoint(x: 0, y: 0), blockSize: CGSize(width: 0, height: 0), isInPlace: false)
     //MARK: pack 1 levels block placement
     
     func setUpBlock(blockStart: CGPoint, goalPoint: CGPoint, blockSize: CGSize, blockPropertyReferance: Int) -> Block  {
@@ -44,6 +45,8 @@ class BlockController {
             return blueBlockTemplate
         case 3:
             return yellowBlocktemplate
+        case 4:
+            return greenBlocktemplate
         default:
             return redBlockTemplate
         }
