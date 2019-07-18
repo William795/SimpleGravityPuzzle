@@ -31,6 +31,21 @@ enum WallSizes {
     static let eighthVerticalWall: CGSize = CGSize(width: screenSize.width / 20, height: screenSize.height / 8)
     static let eighthHorizontalWall: CGSize = CGSize(width: screenSize.width / 4, height: screenSize.height / 40)
     
+    static let thinFullHorizontalWall: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 40)
+    static let thinFullVerticalWall: CGSize = CGSize(width: screenSize.width / 20, height: screenSize.height)
+    
+    static let thinHalfHorizontalWall: CGSize = CGSize(width: screenSize.width / 2, height: screenSize.height/80)
+    static let thinHalfVerticalWall: CGSize = CGSize(width: screenSize.width / 40, height: screenSize.height/2)
+    
+    static let thinThirdHorizontalWall: CGSize = CGSize(width: screenSize.width / 3, height: screenSize.height/80)
+    static let thinThirdVerticalWall: CGSize = CGSize(width: screenSize.width / 40, height: screenSize.height/3)
+    
+    static let thinQuarterHorizonalWall: CGSize = CGSize(width: screenSize.width/4, height: screenSize.height/80)
+    static let thinQuarterVerticalWall: CGSize = CGSize(width: screenSize.width/40, height: screenSize.height/4)
+    
+    static let thinEighthVerticalWall: CGSize = CGSize(width: screenSize.width / 40, height: screenSize.height / 8)
+    static let thinEighthHorizontalWall: CGSize = CGSize(width: screenSize.width / 4, height: screenSize.height / 80)
+    
     static let thickWallFullCenterCross: [CGSize] = [CGSize(width: screenSize.width, height: screenSize.height / 20), CGSize(width: screenSize.width / 15, height: screenSize.height)]
     static let thickWallHalfCenterCross: [CGSize] = [CGSize(width: screenSize.width / 2, height: screenSize.height / 20), CGSize(width: screenSize.width / 15, height: screenSize.height / 2)]
     static let thickWallQuarterCenterCross: [CGSize] = [CGSize(width: screenSize.width / 4, height: screenSize.height / 20), CGSize(width: screenSize.width / 10, height: screenSize.height / 4)]

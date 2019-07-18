@@ -14,6 +14,7 @@ class GameScene: SKScene {
     //level object that sets up the scene
     var level: Level?
     var levelFinished = false
+    var gravityOn = true
     
     var blockOne: SKSpriteNode?
     var blockTwo: SKSpriteNode?
@@ -103,7 +104,7 @@ class GameScene: SKScene {
         case 3:
             color = .yellow
         case 4:
-            color = .green
+            color = UIColor(displayP3Red: 0.0, green: 0.63, blue: 0.27, alpha: 1)
         default:
             color = .red
         }
@@ -226,6 +227,9 @@ class GameScene: SKScene {
         addChild(wall)
     }
     
+    func makeGreyEffect() {
+    }
+    
     func makeGravityTeller() {
         gravityTeller = SKSpriteNode(imageNamed: "directionalArrow")
         gravityTeller?.size = CGSize(width: screenSize.width / 10, height: screenSize.height / 20)
@@ -271,7 +275,7 @@ class GameScene: SKScene {
             case "3":
                 yelloBlockGravityChange()
             case "4" :
-                node.physicsBody?.isDynamic = !node.physicsBody!.isDynamic
+                greenBlockGravityChange()
             default:
                 print("nothing")
             }
@@ -422,6 +426,14 @@ extension GameScene {
         case .left:
             currentDirection = Direction.right
         }
+    }
+    
+    func greenBlockGravityChange() {
+        self.childNode(withName: "1")?.physicsBody?.affectedByGravity = !gravityOn
+        self.childNode(withName: "2")?.physicsBody?.affectedByGravity = !gravityOn
+        self.childNode(withName: "3")?.physicsBody?.affectedByGravity = !gravityOn
+        self.childNode(withName: "4")?.physicsBody?.affectedByGravity = !gravityOn
+        gravityOn = !gravityOn
     }
 }
 
