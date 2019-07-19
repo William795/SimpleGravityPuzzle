@@ -7,26 +7,52 @@
 //
 
 import UIKit
+import SpriteKit
 
 private let reuseIdentifier = "levelCell"
 
 class LevelSelectViewController: UIViewController {
 
+    @IBOutlet weak var particles: SKView!
+    
     var pack: Pack?
+    var completedDict: [String : Bool]?
     
     @IBOutlet weak var levelCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gameState = 2
-        pack = PackController.shared.packOne
+        setCompletedLevels()
+        
+        if let view = particles {
+            
+            let scene = ParticleScene(size: view.bounds.size)
+            scene.blockRef = 3
+            scene.scaleMode = .aspectFill
+            view.presentScene(scene)
+            view.ignoresSiblingOrder = true
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setCompletedLevels()
         levelCollectionView.reloadData()
     }
 
+    func setCompletedLevels() {
+        completedDict = PersistanceManager.fetchLevelCompletion(for: pack?.levels.count ?? 0)
+        var levelArray: [Level] = []
+        for level in pack?.levels ?? [] {
+            var setLevel = level
+            setLevel.isComplete = completedDict?["level \(setLevel.levelRef)"] ?? false
+            levelArray.append(setLevel)
+        }
+        pack?.levels = levelArray
+    }
     
     // MARK: - Navigation
 

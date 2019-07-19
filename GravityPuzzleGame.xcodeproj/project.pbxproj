@@ -26,6 +26,12 @@
 		9248E1DC22D3B73600114C5A /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1DB22D3B73600114C5A /* Wall.swift */; };
 		924AE13B22D51052001D0C8A /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13A22D51052001D0C8A /* BlockController.swift */; };
 		924AE13D22D51347001D0C8A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924AE13C22D51347001D0C8A /* LevelController.swift */; };
+		9258B19A22E23ACC00A154DB /* ParticleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258B19922E23ACC00A154DB /* ParticleScene.swift */; };
+		9258B19C22E2400600A154DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258B19B22E2400600A154DB /* SettingsViewController.swift */; };
+		925FA0C122E21DB2002C716C /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA0C022E21DB2002C716C /* PersistanceManager.swift */; };
+		925FA0C422E22F13002C716C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 925FA0C222E22F13002C716C /* spark.png */; };
+		925FA0C522E22F13002C716C /* RedBlock.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 925FA0C322E22F13002C716C /* RedBlock.scnp */; };
+		925FA0C722E23064002C716C /* whiteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 925FA0C622E23064002C716C /* whiteSheet.png */; };
 		92890DF822DCD5A000689A8D /* Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DF722DCD5A000689A8D /* Positions.swift */; };
 		92890DFA22DCD5DA00689A8D /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DF922DCD5DA00689A8D /* Sizes.swift */; };
 		92890DFC22DE2E6800689A8D /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92890DFB22DE2E6800689A8D /* IntExtention.swift */; };
@@ -82,6 +88,12 @@
 		9248E1DB22D3B73600114C5A /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		924AE13A22D51052001D0C8A /* BlockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
 		924AE13C22D51347001D0C8A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
+		9258B19922E23ACC00A154DB /* ParticleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleScene.swift; sourceTree = "<group>"; };
+		9258B19B22E2400600A154DB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		925FA0C022E21DB2002C716C /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		925FA0C222E22F13002C716C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		925FA0C322E22F13002C716C /* RedBlock.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = RedBlock.scnp; sourceTree = "<group>"; };
+		925FA0C622E23064002C716C /* whiteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteSheet.png; sourceTree = "<group>"; };
 		92890DF722DCD5A000689A8D /* Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positions.swift; sourceTree = "<group>"; };
 		92890DF922DCD5DA00689A8D /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		92890DFB22DE2E6800689A8D /* IntExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
@@ -127,6 +139,9 @@
 				92126E0622E124C70004CAA2 /* RedBlock.sks */,
 				9233712022E12886007CB0D4 /* BlueBlock.sks */,
 				9233712C22E12AB1007CB0D4 /* GreenBlock.sks */,
+				925FA0C222E22F13002C716C /* spark.png */,
+				925FA0C322E22F13002C716C /* RedBlock.scnp */,
+				925FA0C622E23064002C716C /* whiteSheet.png */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -198,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				9248E19D22D3B31400114C5A /* GameScene.swift */,
+				9258B19922E23ACC00A154DB /* ParticleScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -232,6 +248,8 @@
 				92E594E922D6551B00FC02B0 /* LevelSelectViewController.swift */,
 				92E594EB22D6552600FC02B0 /* PackSelectViewController.swift */,
 				92E594F022D684E400FC02B0 /* GameWonViewController.swift */,
+				925FA0C022E21DB2002C716C /* PersistanceManager.swift */,
+				9258B19B22E2400600A154DB /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -379,12 +397,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9248E1A322D3B31400114C5A /* Main.storyboard in Resources */,
+				925FA0C522E22F13002C716C /* RedBlock.scnp in Resources */,
 				9248E1A522D3B31500114C5A /* Assets.xcassets in Resources */,
 				92126E0522E124790004CAA2 /* YellowBlock.sks in Resources */,
 				9233712222E12886007CB0D4 /* BlueBlock.sks in Resources */,
 				9248E1A822D3B31500114C5A /* LaunchScreen.storyboard in Resources */,
+				925FA0C422E22F13002C716C /* spark.png in Resources */,
 				9233712D22E12AB1007CB0D4 /* GreenBlock.sks in Resources */,
 				92126E0822E124C70004CAA2 /* RedBlock.sks in Resources */,
+				925FA0C722E23064002C716C /* whiteSheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +441,7 @@
 				9248E19E22D3B31400114C5A /* GameScene.swift in Sources */,
 				92890DFC22DE2E6800689A8D /* IntExtention.swift in Sources */,
 				92E594EF22D662C400FC02B0 /* LevelCollectionViewCell.swift in Sources */,
+				925FA0C122E21DB2002C716C /* PersistanceManager.swift in Sources */,
 				924AE13D22D51347001D0C8A /* LevelController.swift in Sources */,
 				9248E1A022D3B31400114C5A /* GameViewController.swift in Sources */,
 				92E594EC22D6552600FC02B0 /* PackSelectViewController.swift in Sources */,
@@ -429,7 +451,9 @@
 				92890DFA22DCD5DA00689A8D /* Sizes.swift in Sources */,
 				9248E19822D3B31400114C5A /* AppDelegate.swift in Sources */,
 				9248E1D822D3B71400114C5A /* Block.swift in Sources */,
+				9258B19A22E23ACC00A154DB /* ParticleScene.swift in Sources */,
 				92E594EA22D6551B00FC02B0 /* LevelSelectViewController.swift in Sources */,
+				9258B19C22E2400600A154DB /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
