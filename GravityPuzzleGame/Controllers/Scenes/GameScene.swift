@@ -195,6 +195,7 @@ class GameScene: SKScene {
         wall.physicsBody = SKPhysicsBody(rectangleOf: size)
         wall.physicsBody?.categoryBitMask = PhysicsCategorys.wall
         wall.physicsBody?.isDynamic = false
+        wall.physicsBody?.restitution = 0.0
         
         addChild(wall)
     }
@@ -225,6 +226,7 @@ class GameScene: SKScene {
         wall.physicsBody?.categoryBitMask = PhysicsCategorys.wall
         wall.physicsBody?.collisionBitMask = PhysicsCategorys.blockOne
         wall.physicsBody?.isDynamic = false
+        wall.physicsBody?.restitution = 0.0
         
         addChild(wall)
     }
@@ -308,15 +310,17 @@ class GameScene: SKScene {
         gameState = 1
         levelFinished = true
         
-        var levelArray: [Level] = []
-        for level in PackController.shared.packOne.levels {
-            var completedLevel = level
-            if level.levelRef == self.level?.levelRef {
-                completedLevel.isComplete = true
-            }
-            levelArray.append(completedLevel)
-        }
-        PackController.shared.packOne.levels = levelArray
+        PersistanceManager.updateLevel(level?.levelRef ?? 0, complete: true)
+        
+//        var levelArray: [Level] = []
+//        for level in PackController.shared.packOne.levels {
+//            var completedLevel = level
+//            if level.levelRef == self.level?.levelRef {
+//                completedLevel.isComplete = true
+//            }
+//            levelArray.append(completedLevel)
+//        }
+//        PackController.shared.packOne.levels = levelArray
     }
 }
 

@@ -11,9 +11,22 @@ import SpriteKit
 
 class TitleScreenViewController: UIViewController {
 
+    @IBOutlet weak var particles: SKView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let view = particles {
+            
+            let scene = ParticleScene(size: view.bounds.size)
+            scene.scaleMode = .aspectFill
+            view.presentScene(scene)
+            view.ignoresSiblingOrder = true
+            view.showsFPS = true
+            view.showsNodeCount = true
+            scene.blockRef = 1
+        }
+
     }
     
 

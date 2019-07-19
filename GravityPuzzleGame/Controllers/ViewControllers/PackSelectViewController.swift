@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import SpriteKit
 
 class PackSelectViewController: UIViewController {
 
+    @IBOutlet weak var particles: SKView!
     let packOne: Pack = PackController.shared.packOne
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let view = particles {
+            
+            let scene = ParticleScene(size: view.bounds.size)
+            scene.blockRef = 2
+            scene.scaleMode = .aspectFill
+            view.presentScene(scene)
+            view.ignoresSiblingOrder = true
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
     
 
