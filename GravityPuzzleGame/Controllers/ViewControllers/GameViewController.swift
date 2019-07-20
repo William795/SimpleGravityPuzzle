@@ -13,7 +13,8 @@ import SpriteKit
 let screenSize: CGRect = UIScreen.main.bounds
 let sideBorders: CGSize = CGSize(width: screenSize.width / 6, height: screenSize.height)
 let topBorder: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 12)
-let bottomBorder: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 4)
+let bottomBorder: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 7)
+
 var gameState = 0
 class GameViewController: UIViewController {
     
