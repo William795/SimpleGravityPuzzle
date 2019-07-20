@@ -23,8 +23,6 @@ class GameScene: SKScene {
     var gravityTeller: SKSpriteNode?
     //MARK: Scene Set Up
     
-//    let wallColor = UIColor(displayP3Red: 0.16, green: 0.16, blue: 0.16, alpha: 1)
-//    let wallColor = UIColor(displayP3Red: 0.27, green: 0.27, blue: 0.31, alpha: 1)
     let wallColor = UIColor(displayP3Red: 0.44, green: 0.44, blue: 0.42, alpha: 1)
     
     var currentDirection: Direction = .down {
@@ -56,12 +54,18 @@ class GameScene: SKScene {
     func levelSetUp() {
         setUpWalls()
         setUpBlocks()
-        makeGravityTeller()
+        setUpGravityTeller()
         gravityTeller?.run(SKAction.rotate(toAngle: 270.degreesToRadians, duration: 0.1))
+    }
+    
+    func setUpGravityTeller() {
+        makeGravityTellerG()
+        makeGravityTellerBall()
     }
     
     func setUpWalls() {
         perimeterSetUp()
+        makeBottomBackground()
         for wall in level?.walls ?? [] {
             makeWallFrom(size: wall.size, position: wall.position)
         }
@@ -213,8 +217,8 @@ class GameScene: SKScene {
         let topSize = topBorder
         makePerimeterWall(side: topSide, size: topSize)
         
-        let bottomSide = CGPoint(x: frame.midX, y: frame.minY)
-        let bottomSize = bottomBorder
+        let bottomSide = CGPoint(x: frame.midX, y: screenSize.maxY * 0.13)
+        let bottomSize = CGSize(width: screenSize.width, height: screenSize.maxY * 0.01)
         makePerimeterWall(side: bottomSide, size: bottomSize)
     }
     
@@ -231,38 +235,52 @@ class GameScene: SKScene {
         addChild(wall)
     }
     
-    func makeGreyEffect() {
-    }
-    
-    func makeGravityTeller() {
-        gravityTeller = SKSpriteNode(imageNamed: "directionalArrow")
-        gravityTeller?.size = CGSize(width: screenSize.width / 10, height: screenSize.height / 20)
-        gravityTeller?.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.08)
-        gravityTeller?.zPosition = ZPosition.label
-        gravityTeller?.physicsBody?.isDynamic = false
+    func makeBottomBackground() {
+        let bottomBackground = SKShapeNode(rect: CGRect(origin: CGPoint(x: screenSize.minX, y: screenSize.maxY * -0.015), size: bottomBorder))
+        bottomBackground.fillColor = wallColor
+        bottomBackground.zPosition = ZPosition.label
+        bottomBackground.strokeColor = wallColor
         
-        addChild(gravityTeller!)
+        addChild(bottomBackground)
     }
     
     //MARK: - Gravity informer
-    //using a roatating sprite possably change it out for a more physics oriented solution
     
-    //    func makeGravityTeller() {
-    //        let gravityTeller = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: .darkGray, size: CGSize(width: screenSize.width / 10, height: screenSize.height / 20))
-    //        gravityTeller.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.08)
-    //        gravityTeller.colorBlendFactor = 1.0
-    //        gravityTeller.zPosition = ZPosition.label
-    //        gravityTeller.physicsBody = SKPhysicsBody(
-    //        gravityTeller.physicsBody = SKPhysicsBody(circleOfRadius: gravityTeller.size.width / 2)
-    //        gravityTeller.physicsBody?.categoryBitMask = PhysicsCategorys.gravityTeller
-    //        gravityTeller.physicsBody?.isDynamic = false
-    //
-    //        addChild(gravityTeller)
-    //    }
+    func makeGravityTellerG() {
+        let gravityTeller = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: .darkGray, size: CGSize(width: screenSize.width / 5, height: screenSize.height / 10))
+        gravityTeller.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.07)
+        gravityTeller.colorBlendFactor = 1
+        gravityTeller.zPosition = ZPosition.gravityTeller
+        gravityTeller.physicsBody = SKPhysicsBody(edgeLoopFrom: CGPath(ellipseIn: CGRect(origin: CGPoint(x: screenSize.maxX * -0.1, y: screenSize.maxY * -0.051), size: CGSize(width: screenSize.width / 5, height: screenSize.height / 10)), transform: nil))
+        gravityTeller.physicsBody?.categoryBitMask = PhysicsCategorys.gravityTeller
+        gravityTeller.physicsBody?.collisionBitMask = PhysicsCategorys.gravityTeller
+        gravityTeller.physicsBody?.isDynamic = false
+        gravityTeller.physicsBody?.restitution = 0.2
+        
+        addChild(gravityTeller)
+    }
+    
+    func makeGravityTellerBall() {
+        let ball = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), size: CGSize(width: screenSize.width * 0.08, height: screenSize.height * 0.04))
+        ball.color = UIColor(displayP3Red: 0.90, green: 0.91, blue: 0.7, alpha: 1)
+        ball.colorBlendFactor = 1
+        ball.position = CGPoint(x: screenSize.maxX * 0.8, y: screenSize.maxY * 0.07)
+        ball.zPosition = ZPosition.ball
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
+        ball.physicsBody?.categoryBitMask = PhysicsCategorys.gravityTeller
+        ball.physicsBody?.contactTestBitMask = PhysicsCategorys.gravityTeller
+        ball.physicsBody?.collisionBitMask = PhysicsCategorys.gravityTeller
+        ball.physicsBody?.affectedByGravity = true
+        ball.physicsBody?.restitution = 0.5
+        
+        addChild(ball)
+    }
     
     //MARK: Touch Functions
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
         if levelFinished {
             return
         }
@@ -311,16 +329,6 @@ class GameScene: SKScene {
         levelFinished = true
         
         PersistanceManager.updateLevel(level?.levelRef ?? 0, complete: true)
-        
-//        var levelArray: [Level] = []
-//        for level in PackController.shared.packOne.levels {
-//            var completedLevel = level
-//            if level.levelRef == self.level?.levelRef {
-//                completedLevel.isComplete = true
-//            }
-//            levelArray.append(completedLevel)
-//        }
-//        PackController.shared.packOne.levels = levelArray
     }
 }
 
@@ -335,6 +343,10 @@ extension GameScene: SKPhysicsContactDelegate {
         switch contactMask {
         case PhysicsCategorys.wall | PhysicsCategorys.blockOne:
             print("contact")
+            
+        case PhysicsCategorys.gravityTeller | PhysicsCategorys.gravityTeller:
+            return
+            
         case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
             level?.blocks[0].isInPlace = true
             contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
@@ -381,24 +393,28 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        //        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        //
-        //        switch contactMask {
-        //        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
-        //            level?.blocks[0].isInPlace = false
-        //
-        //        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
-        //            level?.blocks[1].isInPlace = false
-        //
-        //        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
-        //            level?.blocks[2].isInPlace = false
-        //
-        //        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
-        //            level?.blocks[3].isInPlace = false
-        //
-        //        default:
-        //            print("contact did end Default hit")
-        //        }
+        
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        switch contactMask {
+        case PhysicsCategorys.gravityTeller | PhysicsCategorys.gravityTeller:
+            return
+            
+        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
+            level?.blocks[0].isInPlace = false
+            
+        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
+            level?.blocks[1].isInPlace = false
+            
+        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
+            level?.blocks[2].isInPlace = false
+            
+        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
+            level?.blocks[3].isInPlace = false
+            
+        default:
+            print("contact did end Default hit")
+        }
     }
     
     

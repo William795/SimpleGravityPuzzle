@@ -13,10 +13,10 @@ enum presetBlockCGPoint {
     static let middle: CGPoint = CGPoint(x: screenSize.midX, y: screenSize.midY)
     
     //MARK: - block and goal spots
-    static let bottomLeftCorner: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6, y: screenSize.minY + screenSize.midY / 4)
+    static let bottomLeftCorner: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6, y: screenSize.minY + screenSize.midY / 3)
     static let bottomLeftCornerEndPoint: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6 + screenSize.width / 15, y: screenSize.minY + screenSize.midY / 12 + screenSize.height / 8.5)
     
-    static let bottomRightCorner: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6, y: screenSize.minY + screenSize.midY / 4)
+    static let bottomRightCorner: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6, y: screenSize.minY + screenSize.midY / 3)
     static let bottomRightCornerEndPoint: CGPoint = CGPoint(x: screenSize.maxX - screenSize.midX / 6 - screenSize.width / 15, y: screenSize.minY + screenSize.midY / 12 + screenSize.height / 8.5)
     
     static let topLeftCorner: CGPoint = CGPoint(x: screenSize.minX + screenSize.midX / 6, y: screenSize.maxY - screenSize.midY / 12)
