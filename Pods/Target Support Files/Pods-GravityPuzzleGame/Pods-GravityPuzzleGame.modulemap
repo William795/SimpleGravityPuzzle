@@ -1,0 +1,6 @@
+framework module Pods_GravityPuzzleGame {
+  umbrella header "Pods-GravityPuzzleGame-umbrella.h"
+
+  export *
+  module * { export * }
+}

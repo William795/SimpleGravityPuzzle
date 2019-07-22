@@ -22,8 +22,20 @@ class SettingsViewController: UIViewController {
             scene.scaleMode = .aspectFill
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
-            view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsFPS = false
+            view.showsNodeCount = false
+        }
+    }
+    
+    @IBAction func PPButtonPressed(_ sender: Any) {
+        openUrl(urlStr: "https://www.privacypolicies.com/privacy/view/e658c5c4763629c0ff23453431e98fab")
+    }
+    
+    func openUrl(urlStr:String!) {
+        
+        if let url = NSURL(string:urlStr) {
+            UIApplication.shared.open(url as URL, options: [:]) { (true) in
+            }
         }
     }
 }

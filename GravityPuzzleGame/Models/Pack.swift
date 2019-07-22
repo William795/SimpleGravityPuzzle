@@ -18,6 +18,5 @@ class Pack {
         self.isCompleted = isCompleted
         self.purchased = purchased
         self.levels = levels
-        
     }
 }

@@ -14,11 +14,10 @@ private let reuseIdentifier = "levelCell"
 class LevelSelectViewController: UIViewController {
 
     @IBOutlet weak var particles: SKView!
+    @IBOutlet weak var levelCollectionView: UICollectionView!
     
     var pack: Pack?
     var completedDict: [String : Bool]?
-    
-    @IBOutlet weak var levelCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +25,13 @@ class LevelSelectViewController: UIViewController {
         setCompletedLevels()
         
         if let view = particles {
-            
             let scene = ParticleScene(size: view.bounds.size)
             scene.blockRef = 3
             scene.scaleMode = .aspectFill
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
-            view.showsFPS = true
-            view.showsNodeCount = true
+            view.showsFPS = false
+            view.showsNodeCount = false
         }
     }
     
@@ -41,6 +39,7 @@ class LevelSelectViewController: UIViewController {
         super.viewWillAppear(animated)
         setCompletedLevels()
         levelCollectionView.reloadData()
+        gameState = 2
     }
 
     func setCompletedLevels() {
@@ -56,7 +55,6 @@ class LevelSelectViewController: UIViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toGameSceneFromLevelSelect", let indexPath = levelCollectionView.indexPathsForSelectedItems{
             let level = pack?.levels[indexPath.first?.row ?? 0]
@@ -64,11 +62,10 @@ class LevelSelectViewController: UIViewController {
             destinationVC?.level = level
         }
     }
-    
-
 }
 
 extension LevelSelectViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pack?.levels.count ?? 0
     }
@@ -89,6 +86,4 @@ extension LevelSelectViewController: UICollectionViewDataSource, UICollectionVie
         
         return cell ?? UICollectionViewCell()
     }
-    
-    
 }

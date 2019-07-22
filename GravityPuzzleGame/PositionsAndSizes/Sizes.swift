@@ -8,13 +8,8 @@
 
 import SpriteKit
 
-
 enum WallSizes {
     //MARK: - Wall sizes
-    
-    static let wallFullCenterCross: [CGSize] = [CGSize(width: screenSize.width, height: screenSize.height / 30), CGSize(width: screenSize.width / 20, height: screenSize.height)]
-    static let wallHalfCenterCross: [CGSize] = [CGSize(width: screenSize.width / 2, height: screenSize.height / 30), CGSize(width: screenSize.width / 20, height: screenSize.height / 2)]
-    static let wallQuarterCenterCross: [CGSize] = [CGSize(width: screenSize.width / 4, height: screenSize.height / 40), CGSize(width: screenSize.width / 20, height: screenSize.height / 4)]
     
     static let fullHorizontalWall: CGSize = CGSize(width: screenSize.width, height: screenSize.height / 40)
     static let fullVerticalWall: CGSize = CGSize(width: screenSize.width / 20, height: screenSize.height)
@@ -58,6 +53,5 @@ enum WallSizes {
     
     static let thickQuarterHorizonalWall: CGSize = CGSize(width: screenSize.width/4, height: screenSize.height/20)
     static let thickQuarterVerticalWall: CGSize = CGSize(width: screenSize.width/10, height: screenSize.height/4)
-    
 }
 
