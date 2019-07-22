@@ -26,14 +26,13 @@ class LevelController {
         
         let blockPositions = [[presetBlockCGPoint.bottomLeftCorner, presetBlockCGPoint.bottomRightCornerEndPoint], [presetBlockCGPoint.topLeftCorner, presetBlockCGPoint.topRightCornerEndPoint]]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.5, Y: 0.55, size: WallSizes.fullHorizontalWall),
-                             WallController.shared.makeWallWith(X: 0.16, Y: 0.24, size: WallSizes.halfHorizontalWall),
+                             WallController.shared.makeWallWith(X: 0.16, Y: 0.25, size: WallSizes.halfHorizontalWall),
                              WallController.shared.makeWallWith(X: 0.16, Y: 0.84, size: WallSizes.halfHorizontalWall),
-                             WallController.shared.makeWallWith(X: 0.385, Y: 0.54, size: WallController.shared.WallSize(widthMultiplyer: 0.05, heightMultiplyer: 0.62)),
+                             WallController.shared.makeWallWith(X: 0.385, Y: 0.54, size: WallController.shared.WallSize(widthMultiplyer: 0.05, heightMultiplyer: 0.6)),
                              WallController.shared.makeWallWith(X: 0.65, Y: 0.2, size: WallSizes.quarterVerticalWall),
                              WallController.shared.makeWallWith(X: 0.65, Y: 0.9, size: WallSizes.quarterVerticalWall)
         ]
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -59,7 +58,7 @@ class LevelController {
                              WallController.shared.makeWallWith(X: 0.85, Y: 0.85, size: WallSizes.quarterHorizonalWall),
                              WallController.shared.makeWallWith(X: 0.5, Y: 0.6, size: WallSizes.halfHorizontalWall),
                              WallController.shared.makeWallWith(X: 0.18, Y: 0.35, size: WallSizes.quarterHorizonalWall),
-                             WallController.shared.makeWallWith(X: 0.28, Y: 0.3, size: WallSizes.eighthVerticalWall)
+                             WallController.shared.makeWallWith(X: 0.28, Y: 0.29, size: WallSizes.eighthVerticalWall)
                              ]
         
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
@@ -77,7 +76,6 @@ class LevelController {
         ]
         
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -94,7 +92,6 @@ class LevelController {
                              WallController.shared.makeWallWith(X: 0.9, Y: 0.55, size: WallSizes.quarterHorizonalWall)
         ]
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -114,7 +111,6 @@ class LevelController {
                              
                              ]
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -133,7 +129,6 @@ class LevelController {
                              WallController.shared.makeWallWith(X: 0.61, Y: 0.75, size: WallSizes.quarterHorizonalWall)
                              ]
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -150,7 +145,6 @@ class LevelController {
                              WallController.shared.makeWallWith(X: 0.615, Y: 0.845, size: WallSizes.thinQuarterHorizonalWall)
                              ]
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -162,15 +156,14 @@ class LevelController {
                              WallController.shared.makeWallWith(X: 0.25, Y: 0.8335, size: WallController.shared.WallSize(widthMultiplyer: 0.03, heightMultiplyer: 0.08)),
                              WallController.shared.makeWallWith(X: 1, Y: 0.8, size: WallSizes.thinHalfHorizontalWall),
                              WallController.shared.makeWallWith(X: 0.75, Y: 0.8335, size: WallController.shared.WallSize(widthMultiplyer: 0.03, heightMultiplyer: 0.08)),
-                             WallController.shared.makeWallWith(X: 0.6, Y: 0.7, size: WallSizes.thinEighthHorizontalWall),
+                             WallController.shared.makeWallWith(X: 0.61, Y: 0.7, size: WallSizes.thinEighthHorizontalWall),
                              WallController.shared.makeWallWith(X: 0.5, Y: 0.55, size: WallSizes.fullHorizontalWall),
                              WallController.shared.makeWallWith(X: 0.5, Y: 0.55, size: WallSizes.fullVerticalWall),
                              WallController.shared.makeWallWith(X: 0.05, Y: 0.4, size: WallSizes.halfHorizontalWall),
                              WallController.shared.makeWallWith(X: 0.28, Y: 0.42, size: WallSizes.quarterVerticalWall),
-                             WallController.shared.makeWallWith(X: 1, Y: 0.2, size: WallSizes.thinHalfHorizontalWall)
+                             WallController.shared.makeWallWith(X: 1, Y: 0.23, size: WallSizes.thinHalfHorizontalWall)
                              ]
         setUpLevel(level: &level, blockPositionArray: blockPositions, walls: walls)
-        
         return level
     }
     
@@ -192,7 +185,6 @@ class LevelController {
     
     func makePackOneLevelArray() -> [Level] {
         let packOneArray = [makeLevelOne(), makeLevelTwo(),  makeLevelThree(), makeLevelFour(), makeLevelFive(), makeLevelSix(), makeLevelSeven(), makeLevelEight(), makeLevelNine(), makeLevelTen()]
-        
         return packOneArray
     }
 }

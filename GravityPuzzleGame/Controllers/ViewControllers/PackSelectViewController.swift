@@ -29,8 +29,6 @@ class PackSelectViewController: UIViewController {
         }
     }
     
-
-    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,7 +38,4 @@ class PackSelectViewController: UIViewController {
             destinationVC?.pack = packSent
         }
     }
- 
-
 }
-

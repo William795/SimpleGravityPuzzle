@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B19B857D64812F0C806D61 /* Pods_GravityPuzzleGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4791BA45269FC65688B4B35 /* Pods_GravityPuzzleGame.framework */; };
+		232738D830D81DEC94D14E39 /* Pods_GravityPuzzleGameTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E05FD7F684591E02E6AD6C7 /* Pods_GravityPuzzleGameTests.framework */; };
 		92126E0522E124790004CAA2 /* YellowBlock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 92126E0422E124790004CAA2 /* YellowBlock.sks */; };
 		92126E0822E124C70004CAA2 /* RedBlock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 92126E0622E124C70004CAA2 /* RedBlock.sks */; };
 		9233712222E12886007CB0D4 /* BlueBlock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9233712022E12886007CB0D4 /* BlueBlock.sks */; };
@@ -17,8 +19,6 @@
 		9248E1A322D3B31400114C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9248E1A122D3B31400114C5A /* Main.storyboard */; };
 		9248E1A522D3B31500114C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9248E1A422D3B31500114C5A /* Assets.xcassets */; };
 		9248E1A822D3B31500114C5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9248E1A622D3B31500114C5A /* LaunchScreen.storyboard */; };
-		9248E1B322D3B31500114C5A /* GravityPuzzleGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1B222D3B31500114C5A /* GravityPuzzleGameTests.swift */; };
-		9248E1BE22D3B31500114C5A /* GravityPuzzleGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1BD22D3B31500114C5A /* GravityPuzzleGameUITests.swift */; };
 		9248E1CD22D3B64900114C5A /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1CC22D3B64900114C5A /* Pack.swift */; };
 		9248E1D222D3B69A00114C5A /* PackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1D122D3B69A00114C5A /* PackController.swift */; };
 		9248E1D622D3B6C000114C5A /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248E1D522D3B6C000114C5A /* Level.swift */; };
@@ -40,6 +40,7 @@
 		92E594EF22D662C400FC02B0 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */; };
 		92E594F122D684E400FC02B0 /* GameWonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594F022D684E400FC02B0 /* GameWonViewController.swift */; };
 		92E594F322D6A57500FC02B0 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E594F222D6A57500FC02B0 /* NavigationViewController.swift */; };
+		B14643E257C61E3AEA0D5C64 /* Pods_GravityPuzzleGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B569F58CCF61871108150B /* Pods_GravityPuzzleGameUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AFB5020846B6E587BFA1C54 /* Pods-GravityPuzzleGameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityPuzzleGameTests.release.xcconfig"; path = "Target Support Files/Pods-GravityPuzzleGameTests/Pods-GravityPuzzleGameTests.release.xcconfig"; sourceTree = "<group>"; };
+		665D13CD171527A9B50E89D5 /* Pods-GravityPuzzleGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityPuzzleGame.release.xcconfig"; path = "Target Support Files/Pods-GravityPuzzleGame/Pods-GravityPuzzleGame.release.xcconfig"; sourceTree = "<group>"; };
+		77B100EBB907ED54F1C96389 /* Pods-GravityPuzzleGameUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityPuzzleGameUITests.debug.xcconfig"; path = "Target Support Files/Pods-GravityPuzzleGameUITests/Pods-GravityPuzzleGameUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8581FCFC57B309CFC68CD1ED /* Pods-GravityPuzzleGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityPuzzleGameTests.debug.xcconfig"; path = "Target Support Files/Pods-GravityPuzzleGameTests/Pods-GravityPuzzleGameTests.debug.xcconfig"; sourceTree = "<group>"; };
+		89B569F58CCF61871108150B /* Pods_GravityPuzzleGameUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GravityPuzzleGameUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E05FD7F684591E02E6AD6C7 /* Pods_GravityPuzzleGameTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GravityPuzzleGameTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92126E0422E124790004CAA2 /* YellowBlock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = YellowBlock.sks; sourceTree = "<group>"; };
 		92126E0622E124C70004CAA2 /* RedBlock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RedBlock.sks; sourceTree = "<group>"; };
 		9233712022E12886007CB0D4 /* BlueBlock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBlock.sks; sourceTree = "<group>"; };
@@ -73,11 +80,7 @@
 		9248E1A722D3B31500114C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9248E1A922D3B31500114C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9248E1AE22D3B31500114C5A /* GravityPuzzleGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GravityPuzzleGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9248E1B222D3B31500114C5A /* GravityPuzzleGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityPuzzleGameTests.swift; sourceTree = "<group>"; };
-		9248E1B422D3B31500114C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9248E1B922D3B31500114C5A /* GravityPuzzleGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GravityPuzzleGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9248E1BD22D3B31500114C5A /* GravityPuzzleGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityPuzzleGameUITests.swift; sourceTree = "<group>"; };
-		9248E1BF22D3B31500114C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9248E1CC22D3B64900114C5A /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		9248E1D122D3B69A00114C5A /* PackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackController.swift; sourceTree = "<group>"; };
 		9248E1D522D3B6C000114C5A /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -99,6 +102,9 @@
 		92E594EE22D662C400FC02B0 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		92E594F022D684E400FC02B0 /* GameWonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWonViewController.swift; sourceTree = "<group>"; };
 		92E594F222D6A57500FC02B0 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		B4184D879F8878B5F5EB9179 /* Pods-GravityPuzzleGameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityPuzzleGameUITests.release.xcconfig"; path = "Target Support Files/Pods-GravityPuzzleGameUITests/Pods-GravityPuzzleGameUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4791BA45269FC65688B4B35 /* Pods_GravityPuzzleGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GravityPuzzleGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76C4A569F35595CEF42CDE0 /* Pods-GravityPuzzleGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GravityPuzzleGame.debug.xcconfig"; path = "Target Support Files/Pods-GravityPuzzleGame/Pods-GravityPuzzleGame.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B19B857D64812F0C806D61 /* Pods_GravityPuzzleGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232738D830D81DEC94D14E39 /* Pods_GravityPuzzleGameTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,12 +128,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14643E257C61E3AEA0D5C64 /* Pods_GravityPuzzleGameUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86048899CC0D8CAEFD5BAD92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4791BA45269FC65688B4B35 /* Pods_GravityPuzzleGame.framework */,
+				8E05FD7F684591E02E6AD6C7 /* Pods_GravityPuzzleGameTests.framework */,
+				89B569F58CCF61871108150B /* Pods_GravityPuzzleGameUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92126DFF22E1241B0004CAA2 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,9 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				9248E19622D3B31400114C5A /* GravityPuzzleGame */,
-				9248E1B122D3B31500114C5A /* GravityPuzzleGameTests */,
-				9248E1BC22D3B31500114C5A /* GravityPuzzleGameUITests */,
 				9248E19522D3B31400114C5A /* Products */,
+				B4B7C9BBE77C4AE8DD6A4541 /* Pods */,
+				86048899CC0D8CAEFD5BAD92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,24 +187,6 @@
 				92890DF022DCD42F00689A8D /* PositionsAndSizes */,
 			);
 			path = GravityPuzzleGame;
-			sourceTree = "<group>";
-		};
-		9248E1B122D3B31500114C5A /* GravityPuzzleGameTests */ = {
-			isa = PBXGroup;
-			children = (
-				9248E1B222D3B31500114C5A /* GravityPuzzleGameTests.swift */,
-				9248E1B422D3B31500114C5A /* Info.plist */,
-			);
-			path = GravityPuzzleGameTests;
-			sourceTree = "<group>";
-		};
-		9248E1BC22D3B31500114C5A /* GravityPuzzleGameUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9248E1BD22D3B31500114C5A /* GravityPuzzleGameUITests.swift */,
-				9248E1BF22D3B31500114C5A /* Info.plist */,
-			);
-			path = GravityPuzzleGameUITests;
 			sourceTree = "<group>";
 		};
 		9248E1CB22D3B34200114C5A /* Resources */ = {
@@ -283,6 +284,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B4B7C9BBE77C4AE8DD6A4541 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E76C4A569F35595CEF42CDE0 /* Pods-GravityPuzzleGame.debug.xcconfig */,
+				665D13CD171527A9B50E89D5 /* Pods-GravityPuzzleGame.release.xcconfig */,
+				8581FCFC57B309CFC68CD1ED /* Pods-GravityPuzzleGameTests.debug.xcconfig */,
+				2AFB5020846B6E587BFA1C54 /* Pods-GravityPuzzleGameTests.release.xcconfig */,
+				77B100EBB907ED54F1C96389 /* Pods-GravityPuzzleGameUITests.debug.xcconfig */,
+				B4184D879F8878B5F5EB9179 /* Pods-GravityPuzzleGameUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9248E1C222D3B31500114C5A /* Build configuration list for PBXNativeTarget "GravityPuzzleGame" */;
 			buildPhases = (
+				16AA85EB59B2B20E3D9B20C4 /* [CP] Check Pods Manifest.lock */,
 				9248E19022D3B31300114C5A /* Sources */,
 				9248E19122D3B31300114C5A /* Frameworks */,
 				9248E19222D3B31300114C5A /* Resources */,
+				378F4A110C0DF5B67897191F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,6 +323,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9248E1C522D3B31500114C5A /* Build configuration list for PBXNativeTarget "GravityPuzzleGameTests" */;
 			buildPhases = (
+				D8F0B129D310955E1D0EB564 /* [CP] Check Pods Manifest.lock */,
 				9248E1AA22D3B31500114C5A /* Sources */,
 				9248E1AB22D3B31500114C5A /* Frameworks */,
 				9248E1AC22D3B31500114C5A /* Resources */,
@@ -325,6 +342,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9248E1C822D3B31500114C5A /* Build configuration list for PBXNativeTarget "GravityPuzzleGameUITests" */;
 			buildPhases = (
+				21101CB247A26A780F6B7B70 /* [CP] Check Pods Manifest.lock */,
 				9248E1B522D3B31500114C5A /* Sources */,
 				9248E1B622D3B31500114C5A /* Frameworks */,
 				9248E1B722D3B31500114C5A /* Resources */,
@@ -351,6 +369,11 @@
 				TargetAttributes = {
 					9248E19322D3B31300114C5A = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					9248E1AD22D3B31500114C5A = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -413,6 +436,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16AA85EB59B2B20E3D9B20C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GravityPuzzleGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21101CB247A26A780F6B7B70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GravityPuzzleGameUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		378F4A110C0DF5B67897191F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GravityPuzzleGame/Pods-GravityPuzzleGame-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GravityPuzzleGame/Pods-GravityPuzzleGame-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GravityPuzzleGame/Pods-GravityPuzzleGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8F0B129D310955E1D0EB564 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GravityPuzzleGameTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9248E19022D3B31300114C5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -449,7 +558,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9248E1B322D3B31500114C5A /* GravityPuzzleGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +565,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9248E1BE22D3B31500114C5A /* GravityPuzzleGameUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +721,7 @@
 		};
 		9248E1C322D3B31500114C5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76C4A569F35595CEF42CDE0 /* Pods-GravityPuzzleGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +740,7 @@
 		};
 		9248E1C422D3B31500114C5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 665D13CD171527A9B50E89D5 /* Pods-GravityPuzzleGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,6 +759,7 @@
 		};
 		9248E1C622D3B31500114C5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8581FCFC57B309CFC68CD1ED /* Pods-GravityPuzzleGameTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -670,6 +780,7 @@
 		};
 		9248E1C722D3B31500114C5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AFB5020846B6E587BFA1C54 /* Pods-GravityPuzzleGameTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -690,6 +801,7 @@
 		};
 		9248E1C922D3B31500114C5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77B100EBB907ED54F1C96389 /* Pods-GravityPuzzleGameUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -709,6 +821,7 @@
 		};
 		9248E1CA22D3B31500114C5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4184D879F8878B5F5EB9179 /* Pods-GravityPuzzleGameUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

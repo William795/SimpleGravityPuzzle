@@ -189,7 +189,6 @@ class GameScene: SKScene {
         }
     }
     
-    
     //MARK: Wall Set Up
     
     func makeWallFrom(size: CGSize, position: CGPoint) {
@@ -391,33 +390,6 @@ extension GameScene: SKPhysicsContactDelegate {
             print("contact did start, Default hit")
         }
     }
-    
-    func didEnd(_ contact: SKPhysicsContact) {
-        
-        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        switch contactMask {
-        case PhysicsCategorys.gravityTeller | PhysicsCategorys.gravityTeller:
-            return
-            
-        case PhysicsCategorys.blockOne | PhysicsCategorys.endPointOne:
-            level?.blocks[0].isInPlace = false
-            
-        case PhysicsCategorys.blockTwo | PhysicsCategorys.endPointTwo:
-            level?.blocks[1].isInPlace = false
-            
-        case PhysicsCategorys.blockThree | PhysicsCategorys.endPointThree:
-            level?.blocks[2].isInPlace = false
-            
-        case PhysicsCategorys.blockFour | PhysicsCategorys.endPointFour:
-            level?.blocks[3].isInPlace = false
-            
-        default:
-            print("contact did end Default hit")
-        }
-    }
-    
-    
 }
 
 extension GameScene {

@@ -15,14 +15,4 @@ struct Block {
     var goalPoint: CGPoint
     var blockSize: CGSize
     var isInPlace: Bool
-    
-    
-//    init(colorReference: Int, propertiesReference: Int, startingPoint: CGPoint, goalPoint: CGPoint, blockSize: CGSize, isInPlace: Bool) {
-//        self.colorReference = colorReference
-//        self.propertiesReference = propertiesReference
-//        self.startingPoint = startingPoint
-//        self.goalPoint = goalPoint
-//        self.blockSize = blockSize
-//        self.isInPlace = isInPlace
-//    }
 }

@@ -20,7 +20,6 @@ enum PhysicsCategorys {
     static let endPointFour: UInt32 = 0x1 << 7
     static let wall: UInt32 = 0x1 << 8
     static let gravityTeller: UInt32 = 0x1 << 9
-    static let ball: UInt32 = 0x1 << 10
 }
 
 enum ZPosition {
