@@ -13,6 +13,7 @@ class PackSelectViewController: UIViewController {
 
     @IBOutlet weak var particles: SKView!
     let packOne: Pack = PackController.shared.packOne
+    let packTwo: Pack = PackController.shared.packTwo
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,11 @@ class PackSelectViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toLevelSelectFromPackOne" {
             let packSent = packOne
+            let destinationVC = segue.destination as? LevelSelectViewController
+            destinationVC?.pack = packSent
+        }
+        if segue.identifier == "toLevelSelectFromPackTwo" {
+            let packSent = packTwo
             let destinationVC = segue.destination as? LevelSelectViewController
             destinationVC?.pack = packSent
         }
