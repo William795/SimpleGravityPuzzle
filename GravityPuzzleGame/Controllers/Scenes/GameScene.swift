@@ -90,7 +90,7 @@ class GameScene: SKScene {
         
         block.position = startPosition
         block.zPosition = ZPosition.gameElements
-        block.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width + 3, height: size.height + 3))
+        block.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 1.87)
         block.physicsBody?.collisionBitMask = PhysicsCategorys.wall
         block.physicsBody?.restitution = 0.0
         block.physicsBody?.allowsRotation = false
@@ -134,26 +134,18 @@ class GameScene: SKScene {
         switch ID {
         case 1:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockOne
-            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointOne
-            sprite.colorBlendFactor = 1
             blockOne = sprite
             return blockOne ?? sprite
         case 2:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockTwo
-            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointTwo
-            sprite.colorBlendFactor = 1
             blockTwo = sprite
             return blockTwo ?? sprite
         case 3:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockThree
-            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointThree
-            sprite.colorBlendFactor = 1
             blockThree = sprite
             return blockThree ?? sprite
         case 4:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockFour
-            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.endPointFour
-            blockFour = sprite
             return blockFour ?? sprite
         default:
             return sprite
@@ -170,6 +162,7 @@ class GameScene: SKScene {
         goal.physicsBody = SKPhysicsBody(rectangleOf: size)
         endPointCategoryBitmask(sprite: goal, ID: endPointID)
         goal.physicsBody?.isDynamic = false
+        goal.physicsBody?.isResting = true
         
         addChild(goal)
     }
@@ -178,12 +171,16 @@ class GameScene: SKScene {
         switch ID {
         case 1:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.endPointOne
+            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.blockOne
         case 2:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.endPointTwo
+            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.blockTwo
         case 3:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.endPointThree
+            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.blockThree
         case 4:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.endPointFour
+            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.blockFour
         default:
             return
         }
@@ -227,7 +224,6 @@ class GameScene: SKScene {
         wall.zPosition = ZPosition.gameElements
         wall.physicsBody = SKPhysicsBody(rectangleOf: size)
         wall.physicsBody?.categoryBitMask = PhysicsCategorys.wall
-        wall.physicsBody?.collisionBitMask = PhysicsCategorys.blockOne
         wall.physicsBody?.isDynamic = false
         wall.physicsBody?.restitution = 0.0
         
@@ -387,7 +383,12 @@ extension GameScene: SKPhysicsContactDelegate {
             gameWinCheck()
             
         default:
-            print("contact did start, Default hit")
+            contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyA.node?.removeFromParent()
+            }
+            contact.bodyB.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
+                contact.bodyB.node?.removeFromParent()
+            }
         }
     }
 }
