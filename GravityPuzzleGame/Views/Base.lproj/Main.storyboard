@@ -200,10 +200,10 @@
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dTa-N8-MRf">
                                 <rect key="frame" x="41.5" y="206" width="331" height="538"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Cr1-SO-DiW">
-                                    <size key="itemSize" width="70" height="70"/>
+                                    <size key="itemSize" width="60" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="50" minY="100" maxX="50" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="50" minY="50" maxX="50" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <view key="backgroundView" contentMode="scaleToFill" id="n0l-jo-FgH" customClass="SKView">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="538"/>
@@ -376,58 +376,30 @@
                                 <rect key="frame" x="0.0" y="27" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp8-aM-72C">
-                                <rect key="frame" x="41.5" y="623" width="331" height="179"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <state key="normal" title="Pack 3">
-                                    <color key="titleColor" red="0.43948078159999998" green="0.69047468899999997" blue="0.44224068519999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Sft-yc-l95" kind="show" identifier="toLevelSelectFromPackThree" id="DSe-fJ-k1n"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsc-oH-QrO">
-                                <rect key="frame" x="41.5" y="148" width="331" height="179"/>
+                                <rect key="frame" x="41.5" y="116.5" width="331" height="717"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <state key="normal" title="Pack 1">
+                                <state key="normal" title="Level Select">
                                     <color key="titleColor" red="0.43948078159999998" green="0.69047468899999997" blue="0.44224068519999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="Sft-yc-l95" kind="show" identifier="toLevelSelectFromPackOne" id="Gv1-ex-3yU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecB-c3-FU0">
-                                <rect key="frame" x="41.5" y="385.5" width="331" height="179"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <state key="normal" title="Pack 2">
-                                    <color key="titleColor" red="0.43948078159999998" green="0.69047468899999997" blue="0.44224068519999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Sft-yc-l95" kind="show" identifier="toLevelSelectFromPackTwo" id="Gfu-S5-7kK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29975836228598196" green="0.29807592007406158" blue="0.28506432491902206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ecB-c3-FU0" firstAttribute="height" secondItem="4MI-IH-EC7" secondAttribute="height" multiplier="0.2" id="1dD-h0-3h3"/>
-                            <constraint firstItem="Sp8-aM-72C" firstAttribute="centerX" secondItem="4MI-IH-EC7" secondAttribute="centerX" id="733-2P-3LB"/>
-                            <constraint firstItem="ecB-c3-FU0" firstAttribute="centerX" secondItem="4MI-IH-EC7" secondAttribute="centerX" id="7Qk-3u-6Kl"/>
                             <constraint firstItem="gyA-XO-HxL" firstAttribute="centerY" secondItem="B35-Q2-u9B" secondAttribute="centerY" id="AD7-jq-6r1"/>
                             <constraint firstItem="4MI-IH-EC7" firstAttribute="centerX" secondItem="gyA-XO-HxL" secondAttribute="centerX" id="CPV-Ob-S0M"/>
-                            <constraint firstItem="Sp8-aM-72C" firstAttribute="width" secondItem="4MI-IH-EC7" secondAttribute="width" multiplier="0.8" id="PQW-hW-Bo6"/>
                             <constraint firstItem="gyA-XO-HxL" firstAttribute="width" secondItem="gjY-p5-ca5" secondAttribute="width" id="QNl-Fy-UVl"/>
-                            <constraint firstItem="Zsc-oH-QrO" firstAttribute="centerY" secondItem="B35-Q2-u9B" secondAttribute="centerY" multiplier="0.5" id="QRi-jd-83O"/>
+                            <constraint firstItem="Zsc-oH-QrO" firstAttribute="centerY" secondItem="B35-Q2-u9B" secondAttribute="centerY" id="QRi-jd-83O"/>
                             <constraint firstItem="gyA-XO-HxL" firstAttribute="height" secondItem="gjY-p5-ca5" secondAttribute="height" id="SyE-of-ajS"/>
                             <constraint firstItem="Zsc-oH-QrO" firstAttribute="centerX" secondItem="B35-Q2-u9B" secondAttribute="centerX" id="XK9-9v-7rx"/>
-                            <constraint firstItem="Sp8-aM-72C" firstAttribute="height" secondItem="4MI-IH-EC7" secondAttribute="height" multiplier="0.2" id="cCe-kE-HLo"/>
                             <constraint firstItem="gyA-XO-HxL" firstAttribute="centerX" secondItem="B35-Q2-u9B" secondAttribute="centerX" id="dmt-GL-fLQ"/>
                             <constraint firstItem="Zsc-oH-QrO" firstAttribute="width" secondItem="gjY-p5-ca5" secondAttribute="width" multiplier="0.8" id="dtG-bh-wR7"/>
-                            <constraint firstItem="ecB-c3-FU0" firstAttribute="width" secondItem="4MI-IH-EC7" secondAttribute="width" multiplier="0.8" id="iWH-QY-yaD"/>
-                            <constraint firstItem="Zsc-oH-QrO" firstAttribute="height" secondItem="gjY-p5-ca5" secondAttribute="height" multiplier="0.2" id="jf4-ER-u32"/>
-                            <constraint firstItem="ecB-c3-FU0" firstAttribute="centerY" secondItem="4MI-IH-EC7" secondAttribute="centerY" id="kcS-8L-Slv"/>
+                            <constraint firstItem="Zsc-oH-QrO" firstAttribute="height" secondItem="gjY-p5-ca5" secondAttribute="height" multiplier="0.8" id="jf4-ER-u32"/>
                             <constraint firstItem="4MI-IH-EC7" firstAttribute="height" secondItem="gyA-XO-HxL" secondAttribute="height" id="ns6-iZ-HLg"/>
                             <constraint firstItem="4MI-IH-EC7" firstAttribute="width" secondItem="gyA-XO-HxL" secondAttribute="width" id="s7o-Q7-XmF"/>
-                            <constraint firstItem="Sp8-aM-72C" firstAttribute="centerY" secondItem="4MI-IH-EC7" secondAttribute="centerY" multiplier="1.5" id="yZm-R5-jog"/>
                             <constraint firstItem="4MI-IH-EC7" firstAttribute="centerY" secondItem="gyA-XO-HxL" secondAttribute="centerY" id="yxY-E6-ks1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B35-Q2-u9B"/>
@@ -470,7 +442,4 @@
         <image name="checkmark" width="512" height="512"/>
         <image name="reset" width="260" height="260"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="DSe-fJ-k1n"/>
-    </inferredMetricsTieBreakers>
 </document>
