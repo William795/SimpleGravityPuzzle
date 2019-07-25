@@ -18,6 +18,8 @@ enum PhysicsCategorys {
     static let endPointThree: UInt32 = 0x1 << 5
     static let blockFour: UInt32 = 0x1 << 6
     static let endPointFour: UInt32 = 0x1 << 7
+    static let blockFive: UInt32 = 0x1 << 10
+    static let endPointFive: UInt32 = 0x1 << 11
     static let wall: UInt32 = 0x1 << 8
     static let gravityTeller: UInt32 = 0x1 << 9
 }

@@ -20,6 +20,7 @@ class GameScene: SKScene {
     var blockTwo: SKSpriteNode?
     var blockThree: SKSpriteNode?
     var blockFour: SKSpriteNode?
+    var blockFive: SKSpriteNode?
     var gravityTeller: SKSpriteNode?
     //MARK: Scene Set Up
     
@@ -109,6 +110,8 @@ class GameScene: SKScene {
             color = .yellow
         case 4:
             color = UIColor(displayP3Red: 0.0, green: 0.63, blue: 0.27, alpha: 1)
+        case 5:
+            color = .gray
         default:
             color = .red
         }
@@ -125,6 +128,8 @@ class GameScene: SKScene {
             return SKTexture(imageNamed: "upDown")
         case 4:
             return SKTexture(imageNamed: "pause")
+        case 5:
+            return SKTexture(imageNamed: "Swap")
         default:
             return SKTexture(imageNamed: "LeftRotation")
         }
@@ -147,6 +152,9 @@ class GameScene: SKScene {
         case 4:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockFour
             return blockFour ?? sprite
+        case 5:
+            sprite.physicsBody?.categoryBitMask = PhysicsCategorys.blockFive
+            return blockFive ?? sprite
         default:
             return sprite
         }
@@ -158,7 +166,7 @@ class GameScene: SKScene {
         let goal = SKSpriteNode(texture: SKTexture(imageNamed: "ball"), color: getBlockColor(colorRef: colorRef), size: CGSize(width: size.width / 2, height: size.height / 2))
         goal.position = endPosition
         goal.colorBlendFactor = 1.0
-        goal.zPosition = ZPosition.gameElements
+        goal.zPosition = ZPosition.highest
         goal.physicsBody = SKPhysicsBody(rectangleOf: size)
         endPointCategoryBitmask(sprite: goal, ID: endPointID)
         goal.physicsBody?.isDynamic = false
@@ -181,6 +189,9 @@ class GameScene: SKScene {
         case 4:
             sprite.physicsBody?.categoryBitMask = PhysicsCategorys.endPointFour
             sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.blockFour
+        case 5:
+            sprite.physicsBody?.categoryBitMask = PhysicsCategorys.endPointFive
+            sprite.physicsBody?.contactTestBitMask = PhysicsCategorys.blockFive
         default:
             return
         }
@@ -298,6 +309,9 @@ class GameScene: SKScene {
                 } else {
                     node.run(SKAction.setTexture(SKTexture(imageNamed: "play")))
                 }
+            case "5":
+                greyBlockSwap()
+                
             default:
                 print("nothing")
             }
@@ -383,12 +397,7 @@ extension GameScene: SKPhysicsContactDelegate {
             gameWinCheck()
             
         default:
-            contact.bodyA.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
-                contact.bodyA.node?.removeFromParent()
-            }
-            contact.bodyB.node?.run(SKAction.fadeOut(withDuration: 0.5)) {
-                contact.bodyB.node?.removeFromParent()
-            }
+            print("stuff")
         }
     }
 }
@@ -443,7 +452,23 @@ extension GameScene {
         self.childNode(withName: "2")?.physicsBody?.affectedByGravity = !gravityOn
         self.childNode(withName: "3")?.physicsBody?.affectedByGravity = !gravityOn
         self.childNode(withName: "4")?.physicsBody?.affectedByGravity = !gravityOn
+        self.childNode(withName: "5")?.physicsBody?.affectedByGravity = !gravityOn
         gravityOn = !gravityOn
+    }
+    
+    func greyBlockSwap() {
+        guard let posA = blockOne?.position,
+            let posB = blockTwo?.position else {return}
+        
+        blockOne?.run(SKAction.fadeOut(withDuration: 0.5)) {
+            self.blockOne?.position = posB
+            self.blockOne?.run(SKAction.fadeIn(withDuration: 0.5))
+        }
+        
+        blockTwo?.run(SKAction.fadeOut(withDuration: 0.5)) {
+            self.blockTwo?.position = posA
+            self.blockTwo?.run(SKAction.fadeIn(withDuration: 0.5))
+        }
     }
 }
 
