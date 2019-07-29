@@ -42,6 +42,8 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        print(screenSize.width)
+        print(screenSize.height)
         backgroundColor = UIColor(displayP3Red: 0.1, green: 0.11, blue: 0.13, alpha: 1)
         setUpPhysics()
         levelSetUp()
@@ -91,7 +93,7 @@ class GameScene: SKScene {
         
         block.position = startPosition
         block.zPosition = ZPosition.gameElements
-        block.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 1.87)
+        block.physicsBody = SKPhysicsBody(circleOfRadius: size.height / 1.95)
         block.physicsBody?.collisionBitMask = PhysicsCategorys.wall
         block.physicsBody?.restitution = 0.0
         block.physicsBody?.allowsRotation = false
