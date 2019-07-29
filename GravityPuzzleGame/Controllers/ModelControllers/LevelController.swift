@@ -66,7 +66,7 @@ class LevelController {
     }
     
     func makeLevelFive() -> Level {
-        var level = Level(blocks: [], blockReference: [1, 3], levelSizeMultiplyer: 1.5, walls: [], isComplete: false, levelRef: 5)
+        var level = Level(blocks: [], blockReference: [1, 3], levelSizeMultiplyer: 1.45, walls: [], isComplete: false, levelRef: 5)
         
         let blockPositions: [[CGPoint]] = [[presetBlockCGPoint.bottomRightCorner, presetBlockCGPoint.bottomLeftCornerEndPoint], BlockController.shared.setCustomBlockPosition(blockX: 0.4, blockY: 0.6, endX: 0.4, endY: 0.45)]
         let walls: [Wall] = [WallController.shared.makeWallWith(X: 0.4, Y: 0.5, size: WallSizes.quarterHorizonalWall),
